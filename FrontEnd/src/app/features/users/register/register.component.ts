@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/models';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -19,6 +20,7 @@ export class RegisterComponent {
 
   constructor(
     private userService: UserService,
+    private router: Router,
     private tokenStorage: TokenStorageService,
     private alertService: AlertService
   ) {}
@@ -34,6 +36,7 @@ export class RegisterComponent {
 
         this.isRegisterFailed = false;
         this.isRegistered = true;
+        this.router.navigate(['/site/home']);
       },
       error: (error) => {
         this.alertService.error(error.error);

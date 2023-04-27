@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/models';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -20,6 +21,7 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
     private tokenStorage: TokenStorageService,
     private alertService: AlertService
   ) {}
@@ -43,8 +45,7 @@ export class LoginComponent {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         
-        //this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        this.router.navigate(['/site/home']);
       },
       error: (error) => {
         console.log('hhhh');

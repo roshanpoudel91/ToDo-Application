@@ -23,8 +23,7 @@ export class NavBarComponent implements OnInit {
       this.userName = `${this.user?.firstName} ${this.user?.lastName}`;  
     } else {
       this.userName = '';
-    }
-    
+    }  
   }
 
 }
