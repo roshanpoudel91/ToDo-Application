@@ -1,1 +1,1 @@
-# template-pcom-0160-capstone-student
+# pcom-0160-capstone-project
