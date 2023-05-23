@@ -13,6 +13,8 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddCategoryComponent } from './ui/add-category/add-category.component';
+import { EditCategoryComponent } from './ui/edit-category/edit-category.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavBarComponent,
     PageNotFoundComponent,
     AlertComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,
