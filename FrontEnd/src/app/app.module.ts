@@ -13,6 +13,7 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CategoriesComponent } from './features/Categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavBarComponent,
     PageNotFoundComponent,
     AlertComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
