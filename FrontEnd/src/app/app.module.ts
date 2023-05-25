@@ -15,6 +15,7 @@ import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddCategoryComponent } from './ui/add-category/add-category.component';
 import { EditCategoryComponent } from './ui/edit-category/edit-category.component';
+import { CategoriesComponent } from './features/Categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EditCategoryComponent } from './ui/edit-category/edit-category.componen
     AlertComponent,
     AddCategoryComponent,
     EditCategoryComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
