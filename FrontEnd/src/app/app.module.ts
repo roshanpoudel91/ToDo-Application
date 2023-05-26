@@ -15,6 +15,7 @@ import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularPaginatorModule } from 'angular-paginator';
 
+import { CategoriesComponent } from './features/Categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AngularPaginatorModule } from 'angular-paginator';
     NavBarComponent,
     PageNotFoundComponent,
     AlertComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
