@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "angular-paginator": "^10.0.1"
+  }
+}

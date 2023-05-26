@@ -13,6 +13,8 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularPaginatorModule } from 'angular-paginator';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularPaginatorModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
