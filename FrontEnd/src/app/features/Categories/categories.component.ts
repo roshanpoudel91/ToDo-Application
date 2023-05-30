@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Category } from 'src/app/core/models/category';
+import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,12 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+  categories: Category[] = [];
 
-  constructor() { }
+   // declare our ng for form for adding person type
+   @ViewChild('form')
+   form!: NgForm;
+   model: Category = {} as Category;
+
+  constructor( private categoryService : CategoryService) { }
 
   ngOnInit(): void {
+    this.getCategory();
   }
 
+  getCategory(): void {
+    console.log("Inside category component");
+    this.categoryService
+      .getCategory()
+      .subscribe((categoryResult) => (this.categories = categoryResult));
+  }
 
 
 }
