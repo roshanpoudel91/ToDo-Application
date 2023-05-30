@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularPaginatorModule } from 'angular-paginator';
 
 import { CategoriesComponent } from './features/Categories/categories.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CategoriesComponent } from './features/Categories/categories.component'
     NavBarComponent,
     PageNotFoundComponent,
     AlertComponent,
-    CategoriesComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +36,7 @@ import { CategoriesComponent } from './features/Categories/categories.component'
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     AngularPaginatorModule
   ],
   providers: [authInterceptorProviders],
