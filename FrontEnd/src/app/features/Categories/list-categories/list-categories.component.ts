@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { jsonArray } from './data';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  selector: 'app-list-category',
+  templateUrl: './list-categories.component.html',
+  styleUrls: ['./list-categories.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class ListCategoriesComponent implements OnInit {
 
   dataSource = [
     { id: 1, name: 'John Doe', date: "2022-05-25", description:"Hello" },
@@ -23,9 +23,13 @@ export class CategoriesComponent implements OnInit {
   pageSize = 5; 
   currentPage = 1; 
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  addCategory(){
+    this.router.navigate(['site/add-category']);
   }
 
 }
