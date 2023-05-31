@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
     "List the Categories"
     console.log("Inside Goto Categories");
     this.router.navigate(['site/category']);
+
   }
 
 }

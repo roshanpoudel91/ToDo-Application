@@ -1,1 +1,18 @@
 <p>categories works!</p>
+
+
+
+
+<div class="form-group">
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="add-button">Add Person</button>
+</div>
+
+
+<ul class="category-list">
+<li *ngFor="let category of categories">
+  <a routerLink="/site/category{{ category.CategoryID }}">
+    <span class="badge">{{ category.CategoryID }}</span> {{ category.name }}
+  </a>
+</li>
+</ul>

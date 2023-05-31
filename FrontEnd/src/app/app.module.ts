@@ -15,6 +15,7 @@ import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesComponent } from './features/Categories/categories.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { CategoriesComponent } from './features/Categories/categories.component'
     NgbModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
