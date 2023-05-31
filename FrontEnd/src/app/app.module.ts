@@ -17,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
-
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './core/services/in-memory-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,11 @@ import { ListCategoriesComponent } from './features/categories/list-categories/l
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+         InMemoryDataService,{ dataEncapsulation: false }
+      )
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

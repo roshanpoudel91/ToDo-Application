@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Location } from '@angular/common';
 import { Category } from 'src/app/core/models/category';
+import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
   selector: 'app-add-category',
@@ -8,13 +11,29 @@ import { Category } from 'src/app/core/models/category';
 })
 export class AddCategoryComponent implements OnInit {
   model: Category = {} as Category;
-  constructor() { }
+  form!: NgForm;
+  constructor(private service:CategoryService,
+               private location: Location
+              ) { }
 
   ngOnInit(): void {
   }
 
-  addCategory(){
-    console.log("Adding category");
+  back(): void {
+    this.location.back();
+  }
+
+  addCategory(form:NgForm){
+    // form:NgForm parameter has to be deleted after api implemented
+    console.log("Adding category: ", form.invalid);
+    
+    if (form.invalid) { return; }
+     
+    if (this.model) {
+      console.log(this.model);
+     this.service.addCategory(this.model)
+       .subscribe(() => this.back());
+   }
   }
 
 }

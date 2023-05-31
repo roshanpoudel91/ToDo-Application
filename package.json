@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "angular-paginator": "^10.0.1",
-    "bootstrap": "^5.2.3"
+    "angular-in-memory-web-api": "^0.16.0"
   }
 }
