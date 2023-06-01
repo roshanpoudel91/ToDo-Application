@@ -6,7 +6,7 @@ import { CategoryService } from 'src/app/core/services/category.service';
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  // styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
   categories: Category[] = [];
@@ -25,7 +25,7 @@ export class CategoriesComponent implements OnInit {
   getCategory(): void {
     console.log("Inside category component");
     this.categoryService
-      .getCategory()
+      .getCategories()
       .subscribe((categoryResult) => (this.categories = categoryResult));
   }
 
