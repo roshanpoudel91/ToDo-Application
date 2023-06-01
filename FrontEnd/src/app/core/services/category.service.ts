@@ -1,71 +1,97 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Category } from '../models/category';
 import { MessageService } from './message.service';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable, catchError, of, tap } from 'rxjs';
+import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  private categoryUrl = 'site/category' //URL to view category
-  constructor(private http: HttpClient) {}
 
+  private categoryUrl = 'api/categories/'; // URL to web api
 
-  getCategory(): Observable<Category[]> {
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  // };
+
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
+
+  /** GET categories from the server */
+  getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoryUrl).pipe(
-      retry(2),
-      catchError((error: HttpErrorResponse) => {
-        console.error(error);
-        return throwError(error);
-      })
+      tap((_) => this.log('fetched categories')),
+      catchError(this.handleError<Category[]>('getCategories', []))
     );
   }
 
 
-//   httpOptions = {
-//     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-//   };
+  /** GET person type by id. Will 404 if id not found */
+  // getPerson(id: number): Observable<Person> {
+  //   const url = `${this.personsUrl}/${id}`;
+  //   return this.http.get<Person>(url).pipe(
+  //     tap(_ => this.log(`fetched person id=${id}`)),
+  //     catchError(this.handleError<Person>(`getPerson id=${id}`))
+  //   );
+  // }
 
+   /** PUT: update the person type on the server */
+  //  updatePerson(person: Person): Observable<any> {
+  //   const url = `${this.personsUrl}/${person.personId}`;
+  //   return this.http.put(url, person, this.httpOptions).pipe(
+  //     tap(_ => this.log(`updated person type id=${person.personId}`)),
+  //     catchError(this.handleError<any>('updatePerson'))
+  //   );
+  // }
 
-//   constructor(
-//     private http: HttpClient,
-//     private messageService: MessageService
-//   ) { }
+  /** DELETE: delete the person from the server */
+  // deletePerson(id: number): Observable<Person> {
+  //   const url = `${this.personsUrl}/${id}`;
 
-//    /** GET Categories list from in-memory [This will be updated once we have BACKEND SERVER is ready] **/ 
-// getCategory() :Observable<Category[]>{
-//   return this.http.get<Category[]>(this.categoryUrl).pipe(
-//     tap((_) => this.log("fetched Category")),
-//     catchError(this.handleError<Category[]>('getCategory', []))
-//   );
+  //   return this.http.delete<Person>(url, this.httpOptions).pipe(
+  //     tap((_) => this.log(`deleted person id=${id}`)),
+  //     catchError(this.handleError<Person>('deletePerson'))
+  //   );
+  // }
 
-// }
+  /** POST: add a new person to the server */
+  addCategory(category: Category): Observable<Category> {
+    
+    return this.http
+      .post<Category>(this.categoryUrl, category)
+      .pipe(
+        tap((newCategory: Category) =>
+          this.log(`added category w/ id=${newCategory.id}`)
+        ),
+        catchError(this.handleError<Category>('addCategory'))
+      );
+  }
 
-//   /**
-//    * Handle Http operation that failed.
-//    * Let the app continue.
-//    *
-//    * @param operation - name of the operation that failed
-//    * @param result - optional value to return as the observable result
-//    */
-//    private handleError<T>(operation = 'operation', result?: T) {
-//     return (error: any): Observable<T> => {
-//       // TODO: send the error to remote logging infrastructure
-//       console.error(error); // log to console instead
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   *
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
 
-//       // TODO: better job of transforming error for user consumption
-//       this.log(`${operation} failed: ${error.message}`);
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
 
-//       // Let the app keep running by returning an empty result.
-//       return of(result as T);
-//     };
-//   }
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
-//   /** Log a CategoryService message with the MessageService */
-// private log(message: string) {
-//   this.messageService.add(`CategoryService: ${message}`);
-// }
-
+  /** Log a PersonService message with the MessageService */
+  private log(message: string) {
+    this.messageService.add(`CategoryService: ${message}`);
+  }
 }
