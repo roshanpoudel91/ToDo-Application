@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
-    const categories = [
+    return {
+     categories: [
         { CategoryID: 1, name: 'Dr. Nice' , Date: '' , Description: '' , created_at: '' , updated_at: '' , deleted_at: ''},
      
-      ];
-return {categories};
+      ]}
+
 }
 }
