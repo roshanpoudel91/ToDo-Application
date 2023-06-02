@@ -41,7 +41,7 @@ import { InMemoryDataService } from './core/services/in-memory-data.service';
     HttpClientModule,
     NgxPaginationModule,
     HttpClientInMemoryWebApiModule.forRoot(
-         InMemoryDataService,{ dataEncapsulation: false }
+         InMemoryDataService,{ dataEncapsulation: false,passThruUnknownUrl: true }
       )
     
   ],
