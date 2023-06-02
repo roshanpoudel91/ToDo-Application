@@ -8,6 +8,7 @@
         <th>Name</th>
         <th>Date</th>
         <th>Description</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,17 @@
         <td>{{ item.name }}</td>
         <td>{{ item.date }}</td>
         <td>{{ item.description }}</td>
+        <td>
+          <!-- Call to action buttons -->
+          <ul class="list-inline m-0">
+              <li class="list-inline-item">
+                  <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><fa-icon [icon]="faEdit"></fa-icon></button>
+              </li>
+              <li class="list-inline-item">
+                  <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><fa-icon [icon]="faTrash"></fa-icon></button>
+              </li>
+          </ul>
+      </td>
       </tr>
     </tbody>
 </table>

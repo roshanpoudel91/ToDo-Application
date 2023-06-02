@@ -19,6 +19,7 @@ import { AddCategoryComponent } from './features/categories/add-category/add-cat
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './core/services/in-memory-data.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { InMemoryDataService } from './core/services/in-memory-data.service';
     NgxPaginationModule,
     HttpClientInMemoryWebApiModule.forRoot(
          InMemoryDataService,{ dataEncapsulation: false,passThruUnknownUrl: true }
-      )
+      ),
+    FontAwesomeModule
     
   ],
   providers: [authInterceptorProviders],
