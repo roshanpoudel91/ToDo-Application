@@ -22,6 +22,10 @@ const routes: Routes = [
       { path: 'category',component: ListCategoriesComponent},
       {path:'add-category', component:AddCategoryComponent},
       {
+        path: 'edit-category/:id',
+        component: AddCategoryComponent,   
+      },
+      {
         path: 'maintenance',
         children: [
         ],

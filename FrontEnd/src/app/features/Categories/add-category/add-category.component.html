@@ -1,28 +1,29 @@
 <div class="container">
 
-<h2>Category</h2><br>
+<h2>Add Category</h2><br>
 <div>
   <form (ngSubmit)="addCategory(form)" #form="ngForm">
-    <div class="form-group col-md-4">
-      <label for="name">Name</label>
+    <div class="form-group col-md-5">
+      <label for="name">Name*</label>
       <input
         type="text"
         class="form-control"
         required
+        maxlength="25"
         name="name"
         id="name"
         [(ngModel)]="model.name"
         #name="ngModel"
       />
       <div
-      *ngIf="name.invalid && (name.dirty || name.touched)"
+      *ngIf="submitted && name.invalid"
       class="alert alert-danger"
     >
-      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="submitted && name.errors?.['required']">Name is required.</div>
     </div>    
     </div><br>
-    <div class="form-group col-md-4">
-      <label for="date">Date</label>
+    <div class="form-group col-md-5">
+      <label for="date">Date*</label>
       <input
         type="date"
         class="form-control"
@@ -33,31 +34,36 @@
         #date="ngModel"
       /> 
       <div
-      *ngIf="date.invalid && (date.dirty || date.touched)"
+      *ngIf="submitted && date.invalid"
       class="alert alert-danger">
-      <div *ngIf="date.errors?.['required']">Date is required.</div>
+      <div *ngIf="submitted && date.errors?.['required']">Date is required.</div>
     </div>
     </div><br>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-5">
         <label for="description">Description</label>
         <textarea class="form-control"
          id="description"
-        required
         name="description"
         [(ngModel)]="model.description"
         #description="ngModel"
+        maxlength="500"
         >
         </textarea>
-        <div
+        <!-- <div
         *ngIf="description.invalid && (description.dirty || description.touched)"
         class="alert alert-danger">
         <div *ngIf="description.errors?.['required']">Description is required.</div>
-      </div>
+      </div> -->
     </div>
     <br>
-    <div class="form-group">
-      <button class="add-button">Add Category</button>
-    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <button class="add-button btn btn-success">{{category_button}}</button>
+      </div>
+      <div class="form-group col-md-4">
+        <button class="cancel-button btn btn-danger" (click)="back()">CANCEL</button>
+      </div>
+  </div>
   </form>
 </div>
 

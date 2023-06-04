@@ -37,6 +37,11 @@ export class ListCategoriesComponent implements OnInit {
     this.getCategories();
   }
 
+  goToEdit(id:number){
+    console.log('category_id',id);
+    this.router.navigate([`/site/edit-category/${id}`])
+  }
+
   getCategories():void{
         this.categoryService
             .getCategories()

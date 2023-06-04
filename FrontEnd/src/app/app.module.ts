@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -47,7 +47,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule
     
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
