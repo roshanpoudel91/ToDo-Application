@@ -51,5 +51,12 @@ export class ListCategoriesComponent implements OnInit {
   addCategory(){
     this.router.navigate(['site/add-category']);
   }
+  deleteCategory(categoryId: number): void {
+    this.categoryService.deleteCategory(categoryId).subscribe(() => {
+      console.log('Category deleted!');
+      // Refresh the categories list after deletion
+      this.getCategories();
+    });
+  }
 
 }
