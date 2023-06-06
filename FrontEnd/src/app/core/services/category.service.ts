@@ -9,7 +9,7 @@ import { Category } from '../models/category';
 })
 export class CategoryService {
 
-  private categoryUrl = 'api/categories/'; // URL to web api
+  private categoryUrl = 'api/categories'; // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -30,22 +30,24 @@ export class CategoryService {
 
 
   /** GET person type by id. Will 404 if id not found */
-  // getPerson(id: number): Observable<Person> {
-  //   const url = `${this.personsUrl}/${id}`;
-  //   return this.http.get<Person>(url).pipe(
-  //     tap(_ => this.log(`fetched person id=${id}`)),
-  //     catchError(this.handleError<Person>(`getPerson id=${id}`))
-  //   );
-  // }
+  getCategory(id: number): Observable<Category> {
+    const url = `${this.categoryUrl}/${id}`;
+    console.log(url);
+    return this.http.get<Category>(url).pipe(
+      tap(_ => this.log(`fetched category id=${id}`)),
+      catchError(this.handleError<Category>(`getCategory id=${id}`))
+    );
+  }
 
    /** PUT: update the person type on the server */
-  //  updatePerson(person: Person): Observable<any> {
-  //   const url = `${this.personsUrl}/${person.personId}`;
-  //   return this.http.put(url, person, this.httpOptions).pipe(
-  //     tap(_ => this.log(`updated person type id=${person.personId}`)),
-  //     catchError(this.handleError<any>('updatePerson'))
-  //   );
-  // }
+   // don't forget to add httoptions after integrating real API
+   updateCategory(category: Category): Observable<any> {
+    const url = `${this.categoryUrl}/${category.id}`;
+    return this.http.put(url, category).pipe(
+      tap(_ => this.log(`updated person type id=${category.id}`)),
+      catchError(this.handleError<any>('updatePerson'))
+    );
+  }
 
   /** DELETE: delete the person from the server */
   // deletePerson(id: number): Observable<Person> {
