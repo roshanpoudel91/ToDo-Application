@@ -13,13 +13,13 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AddCategoryComponent } from './ui/add-category/add-category.component';
-import { EditCategoryComponent } from './ui/edit-category/edit-category.component';
-import { CategoriesComponent } from './features/Categories/categories.component';
-import { DataService } from './tempdata/data.service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule, DatePipe } from '@angular/common';
+import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
+import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-
-
+import { InMemoryDataService } from './core/services/in-memory-data.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,22 +30,24 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     NavBarComponent,
     PageNotFoundComponent,
     AlertComponent,
-    AddCategoryComponent,
-    EditCategoryComponent,
-    CategoriesComponent,
+    ListCategoriesComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
+    CommonModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(DataService),
-
+    NgxPaginationModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+         InMemoryDataService,{ dataEncapsulation: false,passThruUnknownUrl: true }
+      ),
+    FontAwesomeModule
     
-
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
