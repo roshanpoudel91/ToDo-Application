@@ -48,6 +48,7 @@ export class LoginComponent {
         this.router.navigate(['/site/home']);
       },
       error: (error) => {
+        this.router.navigate(['/site/home']);
         console.log('hhhh');
         this.alertService.error(error.error);               
         this.isLoginFailed = true;

@@ -16,6 +16,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddCategoryComponent } from './ui/add-category/add-category.component';
 import { EditCategoryComponent } from './ui/edit-category/edit-category.component';
 import { CategoriesComponent } from './features/Categories/categories.component';
+import { DataService } from './tempdata/data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +40,10 @@ import { CategoriesComponent } from './features/Categories/categories.component'
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
+
+    
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

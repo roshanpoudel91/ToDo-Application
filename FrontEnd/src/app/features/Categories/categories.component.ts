@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { RoleService } from 'src/app/core/services/role.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-categories',
@@ -11,10 +12,13 @@ export class CategoriesComponent implements OnInit {
 
   toDo:any[]=["johal","Sandeep"];
   
-  constructor(private roleApi:RoleService) { }
+  constructor(private roleApi:RoleService, private userApi:UserService) { }
 
   ngOnInit(): void {
     
+    this.userApi.getAll().subscribe((result)=>{
+      console.log(result);
+    })
   }
 
   

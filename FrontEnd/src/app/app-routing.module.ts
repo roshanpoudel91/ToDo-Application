@@ -14,7 +14,7 @@ const routes: Routes = [
   
   {
     path: 'site',
-    canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'category', component: CategoriesComponent },
