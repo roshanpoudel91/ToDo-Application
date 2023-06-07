@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/core/models/category';
 import { CategoryService } from 'src/app/core/services/category.service';
+import { faTable, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-category',
@@ -21,7 +22,9 @@ export class ListCategoriesComponent implements OnInit {
   //   { id: 8, name: 'John Doe', date: "2022-05-25", description:"Hello" },
     
   // ];
-
+  faTable = faTable;
+  faEdit = faEdit;
+  faTrash = faTrash;
   categories: Category[] = [];
 
   pageSize = 10; 
@@ -32,6 +35,11 @@ export class ListCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  goToEdit(id:number){
+    console.log('category_id',id);
+    this.router.navigate([`/site/edit-category/${id}`])
   }
 
   getCategories():void{

@@ -13,12 +13,13 @@ import { FooterComponent } from './ui/footer/footer.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { AlertComponent } from './ui/alert/alert.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './core/services/in-memory-data.service';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,11 +42,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule,
     HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService,{ dataEncapsulation: false }
-    )
+         InMemoryDataService,{ dataEncapsulation: false,passThruUnknownUrl: true }
+      ),
+    FontAwesomeModule
     
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
