@@ -21,7 +21,7 @@
         <td>{{ item.date }}</td>
         <td>{{ item.description }}</td>
         <td>
-          <!-- Call to action buttons -->
+          <!-- Call to action button -->
           <ul class="list-inline m-0">
               <li class="list-inline-item">
                   <button class="btn btn-success btn-sm rounded-0" (click)="goToEdit(item.id)" type="button" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -30,7 +30,23 @@
                   </button>
               </li>
               <li class="list-inline-item">
-                  <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><fa-icon [icon]="faTrash"></fa-icon></button>
+                  <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal"><fa-icon [icon]="faTrash"></fa-icon></button>
+                  <!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="deleteCategory(item.id)" type="button" data-bs-dismiss="modal" class="btn btn-danger">Delete it</button>
+      </div>
+    </div>
+  </div>
+</div>
               </li>
           </ul>
       </td>

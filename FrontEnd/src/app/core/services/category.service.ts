@@ -49,7 +49,13 @@ export class CategoryService {
       catchError(this.handleError<any>('updatePerson'))
     );
   }
-
+  deleteCategory(categoryId: number): Observable<any> {
+    const url = `${this.categoryUrl}/${categoryId}`;
+    return this.http.delete(url).pipe(
+      tap(_ => console.log(`Deleted category with id=${categoryId}`)),
+      catchError(this.handleError<any>('deleteCategory'))
+    );
+  }
   /** DELETE: delete the person from the server */
   // deletePerson(id: number): Observable<Person> {
   //   const url = `${this.personsUrl}/${id}`;
