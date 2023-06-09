@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
-import { CategoriesComponent } from './features/Categories/categories.component';
 import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/users/login/login.component';
 import { RegisterComponent } from './features/users/register/register.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
+import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
+import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'site/home', pathMatch: 'full' },
@@ -14,10 +16,15 @@ const routes: Routes = [
   
   {
     path: 'site',
-    canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'category', component: CategoriesComponent },
+      { path: 'category',component: ListCategoriesComponent},
+      {path:'add-category', component:AddCategoryComponent},
+      {
+        path: 'edit-category/:id',
+        component: AddCategoryComponent,   
+      },
       {
         path: 'maintenance',
         children: [
