@@ -56,7 +56,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "3019623d-ffc6-4414-8e6d-800b25964161",
+                            ConcurrencyStamp = "70dd577e-e197-4434-b8ae-e227d380f85a",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -64,7 +64,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "c6cc5834-e3a8-4b23-bb9b-d2fb2baff46a",
+                            ConcurrencyStamp = "7e6f691e-75a2-4052-bd48-d132381a6d20",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -148,7 +148,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "439201eb-12ce-4614-92f6-15865a75c6a6",
+                            ConcurrencyStamp = "56088d5a-6cde-4b62-8421-ae12f1b6e4da",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -156,10 +156,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGfZKVOrrZObAylXz2x4frx4t/cVtHUj5NKAdf3JWG/K1nqv2s9bc4dEE99kxrgEIg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFddMZ8MBSe7ZEN85b9zx0beHqhcSZvhC0oHL/X/m4xtpElx7NVO7UmzWVwEqROU+A==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3dc30ec0-c3c0-48a3-a8a8-45a42cd33869",
+                            SecurityStamp = "289957dc-06cd-463e-902f-5668287c9bbf",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

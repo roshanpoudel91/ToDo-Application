@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class adnsajkdaskjdnsajk : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -160,17 +160,17 @@ namespace Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "8ce6780e-e569-4950-8303-2fb04a3f8c02", "Capstone Todos Admin", "Admin", "ADMIN" });
+                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "70dd577e-e197-4434-b8ae-e227d380f85a", "Capstone Todos Admin", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { "65764886-4f92-4c2d-b426-a0fe8b26e855", "68ded4f4-d367-41f4-9b53-9f2270c9422c", "Capstone Todos User", "User", "USER" });
+                values: new object[] { "65764886-4f92-4c2d-b426-a0fe8b26e855", "7e6f691e-75a2-4052-bd48-d132381a6d20", "Capstone Todos User", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "536144f7-9a49-4246-a6dd-b883ac0f4119", "admin@capstone.com", true, "Admin", "Capstone", false, null, "admin@capstone.com", "admin@capstone.com", "AQAAAAEAACcQAAAAENlWwoasgYVNpyKkSxtCxcvWgDGxtLSYiet8RZ2tYchhg+TWcAT51fKa6KD3CID39g==", "17809091212", false, "c5a44f74-2728-4032-8dc7-53461d7b7704", false, "admin@capstone.com" });
+                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "56088d5a-6cde-4b62-8421-ae12f1b6e4da", "admin@capstone.com", true, "Admin", "Capstone", false, null, "admin@capstone.com", "admin@capstone.com", "AQAAAAEAACcQAAAAEFddMZ8MBSe7ZEN85b9zx0beHqhcSZvhC0oHL/X/m4xtpElx7NVO7UmzWVwEqROU+A==", "17809091212", false, "289957dc-06cd-463e-902f-5668287c9bbf", false, "admin@capstone.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
