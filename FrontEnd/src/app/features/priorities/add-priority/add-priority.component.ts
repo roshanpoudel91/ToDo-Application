@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Priority } from 'src/app/core/models/Priority';
+import { PriorityService } from 'src/app/core/services/priority.service';
 
 @Component({
   selector: 'app-add-priority',
@@ -20,7 +21,8 @@ export class AddPriorityComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private datePipe: DatePipe,
-    private router : Router
+    private router : Router,
+    private priorityService: PriorityService
     ) { }
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class AddPriorityComponent implements OnInit {
 
   back(): void {
     // this.location.back();
-    this.router.navigate(['site/category'])
+    this.router.navigate(['site/priority'])
   }
 
   
@@ -52,13 +54,13 @@ export class AddPriorityComponent implements OnInit {
       console.log(this.model);
       //if id is present, it will update form otherwise it will add form.
       if (this.model.id) {
-        // this.categoryService.updateCategory(this.model)
-        //   .subscribe(() => this.back());
+        this.priorityService.updatePriority(this.model)
+          .subscribe(() => this.back());
 
       } else {
 
-        // this.categoryService.addCategory(this.model)
-        //   .subscribe(() => this.back());
+        this.priorityService.addPriority(this.model)
+          .subscribe(() => this.back());
 
       }
 

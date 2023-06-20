@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
 import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
+import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'category',component: ListCategoriesComponent},
+      { path: 'priority',component: ListPrioritiesComponent},
       {path:'add-category', component:AddCategoryComponent},
       {path:'add-priority', component:AddPriorityComponent},
       {

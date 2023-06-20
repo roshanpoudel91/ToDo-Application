@@ -24,7 +24,21 @@ export class InMemoryDataService implements InMemoryDbService {
       // { categoryId: 20, name: 'Edmonton', date: '2020-10-06', description:"Edmonton"  },
     ];
 
-  return {categories};
+    const priorities = [
+      { id: 1, name: 'Low', description:"low" },
+      { id: 2, name: 'Medium', description:"medium" },
+      { id: 3, name: 'High', description:"high"  },
+      { id: 4, name: 'Magneta', description:"Magneta"  },
+      { id: 5, name: 'RubberMan', description:"RubberMan" },
+      { id: 6, name: 'Dynama', description:"Dynama"  },
+      { id: 7, name: 'Dr. IQ',  description:"Dr. IQ"  },
+      { id: 8, name: 'Magma', description:"Magma"  },
+      { id: 9, name: 'Tornado', description:"Tornado"  },
+      { id: 10, name: 'Rock', description:"Rock"  },
+      // { categoryId: 20, name: 'Edmonton', date: '2020-10-06', description:"Edmonton"  },
+    ];
+
+  return {categories, priorities};
 
   }
 
