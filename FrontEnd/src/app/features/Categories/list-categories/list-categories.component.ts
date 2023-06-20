@@ -18,6 +18,7 @@ export class ListCategoriesComponent implements OnInit {
 
   pageSize = 10; 
   currentPage = 1; 
+  deleteCategoryId:number = 0;
 
   constructor(private router : Router, 
               private categoryService: CategoryService) { }
@@ -31,6 +32,10 @@ export class ListCategoriesComponent implements OnInit {
     this.router.navigate([`/site/edit-category/${id}`])
   }
 
+  goToDelete(id:number){
+    this.deleteCategoryId = id;
+  }
+
   getCategories():void{
         this.categoryService
             .getCategories()
@@ -40,8 +45,9 @@ export class ListCategoriesComponent implements OnInit {
   addCategory(){
     this.router.navigate(['site/add-category']);
   }
-  deleteCategory(categoryId: number): void {
-    this.categoryService.deleteCategory(categoryId).subscribe(() => {
+  deleteCategory(): void {
+
+    this.categoryService.deleteCategory(this.deleteCategoryId).subscribe(() => {
       console.log('Category deleted!');
       // Refresh the categories list after deletion
       this.getCategories();

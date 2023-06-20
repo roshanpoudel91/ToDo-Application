@@ -16,6 +16,7 @@ export class ListPrioritiesComponent implements OnInit {
   faEdit = faEdit;
   faTrash = faTrash;
   priorities: Priority[] = [];
+  deletepriorityId:number = 0;
 
   pageSize = 10; 
   currentPage = 1; 
@@ -32,6 +33,10 @@ export class ListPrioritiesComponent implements OnInit {
     this.router.navigate([`/site/edit-priority/${id}`])
   }
 
+  goToDelete(id:number){
+    this.deletepriorityId = id;
+  }
+
   getPriorities():void{
         this.priorityService
             .getPriorities()
@@ -41,10 +46,12 @@ export class ListPrioritiesComponent implements OnInit {
   addPriority(){
     this.router.navigate(['site/add-priority']);
   }
-  deletePriority(priorityId: number): void {
-    this.priorityService.deletePriority(priorityId).subscribe(() => {
+
+  deletePriority(): void {
+    console.log("priority_id in compontent", this.deletepriorityId);
+    this.priorityService.deletePriority(this.deletepriorityId).subscribe(() => {
       console.log('Priority deleted!');
-      // Refresh the categories list after deletion
+      // Refresh the priorities list after deletion
       this.getPriorities();
     });
   }

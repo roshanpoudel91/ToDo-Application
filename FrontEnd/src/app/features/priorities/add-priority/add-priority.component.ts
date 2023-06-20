@@ -71,13 +71,14 @@ export class AddPriorityComponent implements OnInit {
     // get the category id from the URL
     // const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     console.log("priority_id", id);
-    // this.priorityService
-    //   .getCategory(id)
-    //   .subscribe((priorityResult) => {
-    //     priorityResult.date = this.datePipe.transform(categoryResult.date, 'yyyy-MM-dd');
-    //     this.model = categoryResult;
-    //     console.log(this.model);
+    this.priorityService
+      .getPriority(id)
+      .subscribe((priorityResult) => {
+        this.model = priorityResult;
+        console.log(this.model);
 
-    }
+      });
+  }
+
 
 }

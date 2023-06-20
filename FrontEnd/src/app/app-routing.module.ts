@@ -30,6 +30,10 @@ const routes: Routes = [
         component: AddCategoryComponent,   
       },
       {
+        path: 'edit-priority/:id',
+        component: AddPriorityComponent,   
+      },
+      {
         path: 'maintenance',
         children: [
         ],
