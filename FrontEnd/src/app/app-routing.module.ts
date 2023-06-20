@@ -7,6 +7,7 @@ import { RegisterComponent } from './features/users/register/register.component'
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
+import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'category',component: ListCategoriesComponent},
       {path:'add-category', component:AddCategoryComponent},
+      {path:'add-priority', component:AddPriorityComponent},
       {
         path: 'edit-category/:id',
         component: AddCategoryComponent,   
