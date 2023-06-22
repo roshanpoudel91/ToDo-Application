@@ -56,6 +56,7 @@ export class PriorityService {
       catchError(this.handleError<any>('deletePriority'))
     );
   }
+  
   /** DELETE: delete the person from the server */
   // deletePerson(id: number): Observable<Person> {
   //   const url = `${this.personsUrl}/${id}`;
