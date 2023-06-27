@@ -9,7 +9,8 @@ import { Priority } from '../models/Priority';
 })
 export class PriorityService { 
 
-  private priorityUrl = 'api/priorities'; // URL to web api
+  //private priorityUrl = 'api/priorities'; // URL to web api
+  private priorityUrl = 'https://localhost:7215/api/priority/priority'; // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),

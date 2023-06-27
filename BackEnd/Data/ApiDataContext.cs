@@ -58,7 +58,8 @@ namespace Data
         }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Priority> Priorities { get; set; }
 
-    
+
     }
 }
