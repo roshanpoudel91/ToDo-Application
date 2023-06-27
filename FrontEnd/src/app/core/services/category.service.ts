@@ -9,7 +9,7 @@ import { Category } from '../models/category';
 })
 export class CategoryService {
 
-  private categoryUrl = 'api/categories'; // URL to web api
+  private categoryUrl = 'https://localhost:7215/api/category/category'; // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -43,12 +43,19 @@ export class CategoryService {
    // don't forget to add httoptions after integrating real API
    updateCategory(category: Category): Observable<any> {
     const url = `${this.categoryUrl}/${category.id}`;
+    console.log(url)
     return this.http.put(url, category).pipe(
       tap(_ => this.log(`updated person type id=${category.id}`)),
       catchError(this.handleError<any>('updatePerson'))
     );
   }
-
+  deleteCategory(categoryId: number): Observable<any> {
+    const url = `${this.categoryUrl}/${categoryId}`;
+    return this.http.delete(url).pipe(
+      tap(_ => console.log(`Deleted category with id=${categoryId}`)),
+      catchError(this.handleError<any>('deleteCategory'))
+    );
+  }
   /** DELETE: delete the person from the server */
   // deletePerson(id: number): Observable<Person> {
   //   const url = `${this.personsUrl}/${id}`;

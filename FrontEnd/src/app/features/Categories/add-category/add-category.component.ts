@@ -14,6 +14,7 @@ export class AddCategoryComponent implements OnInit {
   model: Category = {} as Category;
   form!: NgForm;
   category_button: string = "SAVE";
+  category_add: string = "Add Category";
   submitted:boolean = false;
 
   constructor(private categoryService: CategoryService,
@@ -28,6 +29,7 @@ export class AddCategoryComponent implements OnInit {
     //if id is present in url, form will act as update form otherwise it will act as add form.
     if (id) {
       this.category_button = "UPDATE";
+      this.category_add = "Edit Category";
       this.getCategory(id);
     }
   }
