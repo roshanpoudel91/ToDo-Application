@@ -7,10 +7,7 @@ import { RegisterComponent } from './features/users/register/register.component'
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { ListCategoriesComponent } from './features/categories/list-categories/list-categories.component';
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
-<<<<<<< HEAD
-=======
 import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
->>>>>>> 488f9320bcf4ca92ff946fa0e26d33be8adc4c64
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 
 

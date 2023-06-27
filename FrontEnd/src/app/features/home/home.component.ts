@@ -20,13 +20,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-  GotoPriority(){
-    "List the Priorities"
-    console.log("Inside Priority");
-    this.router.navigate(['site/priority']);
-
-=======
   GotoPriorities(){
     console.log("Inside Goto Priorities");
     this.router.navigate(['site/priority']);
@@ -34,7 +27,6 @@ export class HomeComponent implements OnInit {
 
   addPriority(){
     this.router.navigate(['site/add-priority']);
->>>>>>> 488f9320bcf4ca92ff946fa0e26d33be8adc4c64
   }
 
 }

@@ -20,10 +20,7 @@ import { ListCategoriesComponent } from './features/categories/list-categories/l
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './core/services/in-memory-data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-<<<<<<< HEAD
-=======
 import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
->>>>>>> 488f9320bcf4ca92ff946fa0e26d33be8adc4c64
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 @NgModule({
   declarations: [
@@ -37,10 +34,7 @@ import { ListPrioritiesComponent } from './features/priorities/list-priorities/l
     AlertComponent,
     ListCategoriesComponent,
     AddCategoryComponent,
-<<<<<<< HEAD
-=======
     AddPriorityComponent,
->>>>>>> 488f9320bcf4ca92ff946fa0e26d33be8adc4c64
     ListPrioritiesComponent
   ],
   imports: [
