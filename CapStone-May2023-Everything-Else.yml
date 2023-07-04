@@ -1,0 +1,24 @@
+# CapStone-May2023-Everything-Else
+
+trigger:
+  branches:
+    include:
+      - '*'
+    exclude:
+      - DataPirates
+      - MindInstall
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+  buildSolution: 'BackEnd/CapstoneProject.sln'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build CapStone-May2023-Everything-Else'
+  inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '--configuration $(buildConfiguration)'
