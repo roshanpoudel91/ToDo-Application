@@ -20,6 +20,10 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApiDataContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddIdentity<User, Role>(options => { }).AddEntityFrameworkStores<ApiDataContext>();
 
+// In the section below, we add all of the dependency Injected Types
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IPriorityRepository, PriorityRepository>();
+
 builder.Services.Configure<IdentityOptions>(options =>
 {
     // Password settings.

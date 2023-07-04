@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   GotoCategories(){
     console.log("Inside Goto Categories");
     this.router.navigate(['site/category']);
+
   }
 
   GotoPriorities(){
