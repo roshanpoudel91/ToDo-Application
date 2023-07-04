@@ -20,6 +20,8 @@ import { ListCategoriesComponent } from './features/categories/list-categories/l
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './core/services/in-memory-data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
+import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PageNotFoundComponent,
     AlertComponent,
     ListCategoriesComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddPriorityComponent,
+    ListPrioritiesComponent
   ],
   imports: [
     BrowserModule,

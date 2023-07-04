@@ -2,14 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MessageService } from './message.service';
 import { Observable, catchError, of, tap } from 'rxjs';
-import { Category } from '../models/category';
+import { Priority } from '../models/Priority';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class PriorityService { 
 
-  private categoryUrl = 'https://localhost:7215/api/category/category'; // URL to web api
+  //private priorityUrl = 'api/priorities'; // URL to web api
+  private priorityUrl = 'https://localhost:7215/api/priority/priority'; // URL to web api
 
   // httpOptions = {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -20,40 +21,40 @@ export class CategoryService {
     private messageService: MessageService
   ) {}
 
-  /** GET categories from the server */
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoryUrl).pipe(
-      tap((_) => this.log('fetched categories')),
-      catchError(this.handleError<Category[]>('getCategories', []))
+  /** GET priorities from the server */
+  getPriorities(): Observable<Priority[]> {
+    return this.http.get<Priority[]>(this.priorityUrl).pipe(
+      tap((_) => this.log('fetched priorities')),
+      catchError(this.handleError<Priority[]>('getPriorities', []))
     );
   }
 
 
-  /** GET person type by id. Will 404 if id not found */
-  getCategory(id: number): Observable<Category> {
-    const url = `${this.categoryUrl}/${id}`;
+  /** GET priority by id. Will 404 if id not found */
+  getPriority(id: number): Observable<Priority> {
+    const url = `${this.priorityUrl}/${id}`;
     console.log(url);
-    return this.http.get<Category>(url).pipe(
-      tap(_ => this.log(`fetched category id=${id}`)),
-      catchError(this.handleError<Category>(`getCategory id=${id}`))
+    return this.http.get<Priority>(url).pipe(
+      tap(_ => this.log(`fetched priority id=${id}`)),
+      catchError(this.handleError<Priority>(`getCategory id=${id}`))
     );
   }
 
-   /** PUT: update the person type on the server */
+   /** PUT: update the priority on the server */
    // don't forget to add httoptions after integrating real API
-   updateCategory(category: Category): Observable<any> {
-    const url = `${this.categoryUrl}/${category.id}`;
-    console.log(url)
-    return this.http.put(url, category).pipe(
-      tap(_ => this.log(`updated person type id=${category.id}`)),
-      catchError(this.handleError<any>('updatePerson'))
+   updatePriority(priority: Priority): Observable<any> {
+    const url = `${this.priorityUrl}/${priority.id}`;
+    return this.http.put(url, priority).pipe(
+      tap(_ => this.log(`updated priority id=${priority.id}`)),
+      catchError(this.handleError<any>('updatePriority'))
     );
   }
-  deleteCategory(categoryId: number): Observable<any> {
-    const url = `${this.categoryUrl}/${categoryId}`;
+
+  deletePriority(priorityId: number): Observable<any> {
+    const url = `${this.priorityUrl}/${priorityId}`;
     return this.http.delete(url).pipe(
-      tap(_ => console.log(`Deleted category with id=${categoryId}`)),
-      catchError(this.handleError<any>('deleteCategory'))
+      tap(_ => console.log(`Deleted priority with id=${priorityId}`)),
+      catchError(this.handleError<any>('deletePriority'))
     );
   }
   /** DELETE: delete the person from the server */
@@ -67,15 +68,15 @@ export class CategoryService {
   // }
 
   /** POST: add a new person to the server */
-  addCategory(category: Category): Observable<Category> {
+  addPriority(priority: Priority): Observable<Priority> {
     
     return this.http
-      .post<Category>(this.categoryUrl, category)
+      .post<Priority>(this.priorityUrl, priority)
       .pipe(
-        tap((newCategory: Category) =>
-          this.log(`added category w/ id=${newCategory.id}`)
+        tap((newPriority: Priority) =>
+          this.log(`added priority w/ id=${newPriority.id}`)
         ),
-        catchError(this.handleError<Category>('addCategory'))
+        catchError(this.handleError<Priority>('addPriority'))
       );
   }
 
@@ -101,6 +102,6 @@ export class CategoryService {
 
   /** Log a PersonService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`CategoryService: ${message}`);
+    this.messageService.add(`PriorityService: ${message}`);
   }
 }

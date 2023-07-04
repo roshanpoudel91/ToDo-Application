@@ -85,5 +85,24 @@ namespace WebAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpPut("category/{id}")]
+        public virtual async Task<ActionResult<Category>> UpdateAsync([FromBody] Category category, int id)
+        {
+            try
+            {
+                if (category == null)
+                {
+                    return BadRequest("Invalid Category Type");
+                }
+                var result = await categoryRepository.UpdateAsync(category, id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

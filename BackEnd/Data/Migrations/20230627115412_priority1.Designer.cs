@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    partial class ApiDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230627115412_priority1")]
+    partial class priority1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,8 +104,15 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-
-                            ConcurrencyStamp = "faaf21ae-b80d-4a76-b924-cb996d5b5bc2",             
+                            ConcurrencyStamp = "711926d6-1122-4950-a756-e51662443c7b",
+                            Description = "Capstone Todos Admin",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
+                            ConcurrencyStamp = "ea829989-fab0-46d9-ae19-3d068c2b9b94",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -187,7 +196,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62174732-d99f-4e61-bf9a-ef149017344a",
+                            ConcurrencyStamp = "fbca2c1f-98bb-4013-93e7-9bd6438050c0",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -195,10 +204,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIcY6o4Zpg4Ouup1z71rk6XKof13ZQOhmmLVdRVcaAQb7Nd8c215ZUauz9n/CpJTWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKehvzLSyH9H2XHwJFTTJGd3/oBHt9z1Kw45/KKb4JM3rV2tzieDnt0hScIS/0hq+w==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20dee5f2-6e21-43d9-ac6b-c7b4c04faaff",
+                            SecurityStamp = "68ee41b5-468a-418a-a5b3-5aba38b3626a",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

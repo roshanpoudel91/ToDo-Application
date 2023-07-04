@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    partial class ApiDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230627115023_priority")]
+    partial class priority
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,27 +47,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
-                });
-
-            modelBuilder.Entity("Domain.Priority", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Priority");
                 });
 
             modelBuilder.Entity("Domain.Role", b =>
@@ -102,8 +83,15 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-
-                            ConcurrencyStamp = "faaf21ae-b80d-4a76-b924-cb996d5b5bc2",             
+                            ConcurrencyStamp = "1ace2052-c049-4f24-8c6e-7caf125e13ad",
+                            Description = "Capstone Todos Admin",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
+                            ConcurrencyStamp = "b0c3bca0-5000-400d-b547-d54fd171c0e2",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -187,7 +175,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62174732-d99f-4e61-bf9a-ef149017344a",
+                            ConcurrencyStamp = "59f816e6-983b-4fbd-a0a3-2f8e577a7350",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -195,10 +183,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIcY6o4Zpg4Ouup1z71rk6XKof13ZQOhmmLVdRVcaAQb7Nd8c215ZUauz9n/CpJTWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKLBWdCj5bbBLuGXthqNyzLfuRGZiQS+9g1UfI0ExvLddmBKG+/eyaYnK1YWq9Z8Wg==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20dee5f2-6e21-43d9-ac6b-c7b4c04faaff",
+                            SecurityStamp = "7febdb62-acd8-4607-9457-aac2b7a85fbb",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });
