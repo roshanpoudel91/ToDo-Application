@@ -11,20 +11,33 @@ import { faTable, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class ListCategoriesComponent implements OnInit {
 
+  // dataSource = [
+  //   { id: 1, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 2, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 3, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 4, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 5, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 6, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 7, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+  //   { id: 8, name: 'John Doe', date: "2022-05-25", description:"Hello" },
+    
+  // ];
   faTable = faTable;
   faEdit = faEdit;
   faTrash = faTrash;
   categories: Category[] = [];
+  
 
   pageSize = 10; 
   currentPage = 1; 
-  deleteCategoryId:number = 0;
 
   constructor(private router : Router, 
               private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     this.getCategories();
+    
+        
   }
 
   goToEdit(id:number){
@@ -32,22 +45,21 @@ export class ListCategoriesComponent implements OnInit {
     this.router.navigate([`/site/edit-category/${id}`])
   }
 
-  goToDelete(id:number){
-    this.deleteCategoryId = id;
-  }
-
   getCategories():void{
         this.categoryService
             .getCategories()
-            .subscribe((categoryResult)=>(this.categories = categoryResult))
+            .subscribe((categoryResult)=>(
+              
+              this.categories = categoryResult
+             
+              ))
   }
 
   addCategory(){
     this.router.navigate(['site/add-category']);
   }
-  deleteCategory(): void {
-
-    this.categoryService.deleteCategory(this.deleteCategoryId).subscribe(() => {
+  deleteCategory(categoryId: number): void {
+    this.categoryService.deleteCategory(categoryId).subscribe(() => {
       console.log('Category deleted!');
       // Refresh the categories list after deletion
       this.getCategories();
