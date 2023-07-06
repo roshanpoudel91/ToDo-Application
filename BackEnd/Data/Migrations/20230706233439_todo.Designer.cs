@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    [Migration("20230627115412_priority1")]
-    partial class priority1
+    [Migration("20230706233439_todo")]
+    partial class todo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,11 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
                     b.Property<string>("date")
                         .IsRequired()
@@ -44,18 +44,18 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Domain.Priority", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PriorityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PriorityId"), 1L, 1);
 
                     b.Property<string>("description")
                         .IsRequired()
@@ -65,7 +65,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("PriorityId");
 
                     b.ToTable("Priority");
                 });
@@ -104,7 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "711926d6-1122-4950-a756-e51662443c7b",
+                            ConcurrencyStamp = "824d52bd-5fe0-4f8a-8ad6-a13ed24ca42a",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -112,7 +112,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "ea829989-fab0-46d9-ae19-3d068c2b9b94",
+                            ConcurrencyStamp = "b526cd28-6d35-4ea2-84bf-dbf40613f278",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -196,7 +196,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fbca2c1f-98bb-4013-93e7-9bd6438050c0",
+                            ConcurrencyStamp = "8a42de5d-6f1d-483e-8f62-decfba952f04",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -204,10 +204,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKehvzLSyH9H2XHwJFTTJGd3/oBHt9z1Kw45/KKb4JM3rV2tzieDnt0hScIS/0hq+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH5O3BEuPiojQ8/mUC2m0jAm7RnI3FXJwVHkmdaMKpiVQflNj4DLYw36uyRf/9B/2Q==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68ee41b5-468a-418a-a5b3-5aba38b3626a",
+                            SecurityStamp = "0227a747-947d-49c5-924a-e4e81170dfe7",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });
