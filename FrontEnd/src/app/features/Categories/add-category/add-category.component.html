@@ -1,0 +1,72 @@
+<div class="container">
+
+<h2>{{category_add}}</h2><br>
+<div>
+  <form (ngSubmit)="addCategory(form)" #form="ngForm">
+    <div class="form-group col-md-5">
+      <label for="name">Name*</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        maxlength="25"
+        name="name"
+        id="name"
+        [(ngModel)]="model.name"
+        #name="ngModel"
+      />
+      <div
+      *ngIf="submitted && name.invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="submitted && name.errors?.['required']">Name is required.</div>
+    </div>    
+    </div><br>
+    <div class="form-group col-md-5">
+      <label for="date">Date*</label>
+      <input
+        type="date"
+        class="form-control"
+        required  
+        name="date"
+        id="date"
+        [(ngModel)]="model.date"
+        #date="ngModel"
+      /> 
+      <div
+      *ngIf="submitted && date.invalid"
+      class="alert alert-danger">
+      <div *ngIf="submitted && date.errors?.['required']">Date is required.</div>
+    </div>
+    </div><br>
+    <div class="form-group col-md-5">
+        <label for="description">Description</label>
+        <textarea class="form-control"
+         id="description"
+        name="description"
+        [(ngModel)]="model.description"
+        #description="ngModel"
+        maxlength="500"
+        >
+        </textarea>
+        <!-- <div
+        *ngIf="description.invalid && (description.dirty || description.touched)"
+        class="alert alert-danger">
+        <div *ngIf="description.errors?.['required']">Description is required.</div>
+      </div> -->
+    </div>
+    <br>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <button class="add-button btn btn-success">{{category_button}}</button>
+      </div>
+      <div class="form-group col-md-4">
+        <button class="cancel-button btn btn-danger" (click)="back()">CANCEL</button>
+      </div>
+  </div>
+  </form>
+</div>
+
+</div>
+
+
