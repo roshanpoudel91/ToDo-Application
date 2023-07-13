@@ -22,6 +22,8 @@ import { InMemoryDataService } from './core/services/in-memory-data.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
+import { UserListComponent } from './features/users/list/user-list.component';
+import { AddUserComponent } from './features/users/add/add-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { ListPrioritiesComponent } from './features/priorities/list-priorities/l
     ListCategoriesComponent,
     AddCategoryComponent,
     AddPriorityComponent,
-    ListPrioritiesComponent
+    ListPrioritiesComponent,
+    UserListComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

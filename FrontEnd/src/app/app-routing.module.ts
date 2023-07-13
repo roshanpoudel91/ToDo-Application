@@ -9,6 +9,8 @@ import { ListCategoriesComponent } from './features/categories/list-categories/l
 import { AddCategoryComponent } from './features/categories/add-category/add-category.component';
 import { AddPriorityComponent } from './features/priorities/add-priority/add-priority.component';
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
+import { UserListComponent } from './features/users/list/user-list.component';
+import { AddUserComponent } from './features/users/add/add-user.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,10 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'category',component: ListCategoriesComponent},
       { path: 'priority',component: ListPrioritiesComponent},
+      { path: 'user',component: UserListComponent},
       {path:'add-category', component:AddCategoryComponent},
       {path:'add-priority', component:AddPriorityComponent},
+      {path:'add-user', component:AddUserComponent},
       {
         path: 'edit-category/:id',
         component: AddCategoryComponent,   
@@ -32,6 +36,10 @@ const routes: Routes = [
       {
         path: 'edit-priority/:id',
         component: AddPriorityComponent,   
+      },
+      {
+        path: 'edit-user/:id',
+        component: AddUserComponent,   
       },
       {
         path: 'maintenance',

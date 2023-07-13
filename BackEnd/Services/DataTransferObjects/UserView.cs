@@ -5,6 +5,7 @@ namespace Services.DataTransferObjects
     public class UserView
     {
         [DataMember]
+        public string UserviewId { get; set; }
         public string Id { get; set; }
 
         [DataMember]
