@@ -1,6 +1,14 @@
 <div class="container">
   <h1>Categories</h1><br><br>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search categories" />
+  <button (click)="clearSearch()" type="button" class="btn btn-secondary">Clear</button>
+      <button (click)="searchCategories()" type="button" class="btn btn-primary">Search</button>
+     
+
+  
   <div class="float-end">
+    
+      
     <button (click)="addCategory()" type="button" class="btn btn-primary">ADD</button>
   </div>
   <br><br>
@@ -32,7 +40,7 @@
             </li>
             <li class="list-inline-item">
               <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
-                title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="goToDelete(item.id)"><fa-icon
+                title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" ><fa-icon
                   [icon]="faTrash"></fa-icon></button>
 
             </li>
@@ -53,7 +61,7 @@
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button (click)="deleteCategory()" type="button" data-bs-dismiss="modal"
+          <button (click)="deleteCategory(1)" type="button" data-bs-dismiss="modal"
             class="btn btn-danger">Delete</button>
         </div>
       </div>
