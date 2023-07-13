@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.Designer.cs
-    [Migration("20230629151033_CreateInitial")]
-    partial class CreateInitial
-========
-    [Migration("20230706233439_todo")]
-    partial class todo
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.Designer.cs
+    [Migration("20230706234556_todo1")]
+    partial class todo1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,11 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.Designer.cs
-                            ConcurrencyStamp = "f8c04445-696a-42c1-afa7-98b12c3031c5",
-========
-                            ConcurrencyStamp = "824d52bd-5fe0-4f8a-8ad6-a13ed24ca42a",
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.Designer.cs
+                            ConcurrencyStamp = "c3886771-1d37-4564-af87-34ca15e502be",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -121,11 +112,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.Designer.cs
-                            ConcurrencyStamp = "9e4ddfc2-1892-4ff4-acf7-3042141c8902",
-========
-                            ConcurrencyStamp = "b526cd28-6d35-4ea2-84bf-dbf40613f278",
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.Designer.cs
+                            ConcurrencyStamp = "fb20fef0-d2b5-4970-813a-bf0ec1ed10c9",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -209,11 +196,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.Designer.cs
-                            ConcurrencyStamp = "4ac8b402-c2a9-4c42-a7cf-c71f516406e2",
-========
-                            ConcurrencyStamp = "8a42de5d-6f1d-483e-8f62-decfba952f04",
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.Designer.cs
+                            ConcurrencyStamp = "134a9b7f-a94d-4a97-ba40-5d664f9db39d",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -221,17 +204,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEHbQf772JzOVYTJ/sMywMh4XcJ1eqxcFKGK22ISBs+5aFT/KGP1dOYzlY9cEIb/+Bw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEH9Zv1cPPFEhZUDDw+D7r2Gs4+WFCkZp0rPPYBv1O9ZUlKwcNn5kg9kHGjBdQnKI6A==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "68b3d427-0280-4bf9-960c-1f4117080d7f",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEH5O3BEuPiojQ8/mUC2m0jAm7RnI3FXJwVHkmdaMKpiVQflNj4DLYw36uyRf/9B/2Q==",
-                            PhoneNumber = "17809091212",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "0227a747-947d-49c5-924a-e4e81170dfe7",
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.Designer.cs
+                            SecurityStamp = "dcc7efcf-a20c-4358-8171-a27251867b64",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

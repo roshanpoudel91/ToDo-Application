@@ -134,7 +134,7 @@ namespace Services
         {
             try
             {
-                if (userView == null || string.IsNullOrEmpty(id) || userView.Id != id)
+                if (userView == null || string.IsNullOrEmpty(id) || userView.UserviewId != id)
                 {
                     return null;
                 }

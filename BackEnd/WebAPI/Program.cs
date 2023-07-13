@@ -23,6 +23,7 @@ builder.Services.AddIdentity<User, Role>(options => { }).AddEntityFrameworkStore
 // In the section below, we add all of the dependency Injected Types
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IPriorityRepository, PriorityRepository>();
+builder.Services.AddScoped<ITodoRepository, ToDoRepository>();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
