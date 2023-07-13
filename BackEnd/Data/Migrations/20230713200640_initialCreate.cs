@@ -5,11 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-    public partial class CreateInitial : Migration
-========
-    public partial class todo : Migration
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,11 +55,7 @@ namespace Data.Migrations
                 name: "Category",
                 columns: table => new
                 {
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                    Id = table.Column<int>(type: "int", nullable: false)
-========
                     CategoryId = table.Column<int>(type: "int", nullable: false)
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -71,33 +63,21 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                    table.PrimaryKey("PK_Category", x => x.Id);
-========
                     table.PrimaryKey("PK_Category", x => x.CategoryId);
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
                 });
 
             migrationBuilder.CreateTable(
                 name: "Priority",
                 columns: table => new
                 {
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                    Id = table.Column<int>(type: "int", nullable: false)
-========
                     PriorityId = table.Column<int>(type: "int", nullable: false)
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                    table.PrimaryKey("PK_Priority", x => x.Id);
-========
                     table.PrimaryKey("PK_Priority", x => x.PriorityId);
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -206,32 +186,55 @@ namespace Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "f8c04445-696a-42c1-afa7-98b12c3031c5", "Capstone Todos Admin", "Admin", "ADMIN" });
-========
-                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "824d52bd-5fe0-4f8a-8ad6-a13ed24ca42a", "Capstone Todos Admin", "Admin", "ADMIN" });
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
+            migrationBuilder.CreateTable(
+                name: "ToDo",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    PriorityId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ToDo", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ToDo_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ToDo_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ToDo_Priority_PriorityId",
+                        column: x => x.PriorityId,
+                        principalTable: "Priority",
+                        principalColumn: "PriorityId",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                values: new object[] { "65764886-4f92-4c2d-b426-a0fe8b26e855", "9e4ddfc2-1892-4ff4-acf7-3042141c8902", "Capstone Todos User", "User", "USER" });
-========
-                values: new object[] { "65764886-4f92-4c2d-b426-a0fe8b26e855", "b526cd28-6d35-4ea2-84bf-dbf40613f278", "Capstone Todos User", "User", "USER" });
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
+                values: new object[] { "2c5e174e-3b0e-446f-86af-483d56fd7210", "45758c1a-851c-4f46-b976-c5a65880ca6e", "Capstone Todos Admin", "Admin", "ADMIN" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
+                values: new object[] { "65764886-4f92-4c2d-b426-a0fe8b26e855", "8f976b45-b96a-4e6b-a10b-ff970db9a901", "Capstone Todos User", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-<<<<<<<< HEAD:BackEnd/Data/Migrations/20230629151033_CreateInitial.cs
-                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "4ac8b402-c2a9-4c42-a7cf-c71f516406e2", "admin@capstone.com", true, "Admin", "Capstone", false, null, "admin@capstone.com", "admin@capstone.com", "AQAAAAEAACcQAAAAEHbQf772JzOVYTJ/sMywMh4XcJ1eqxcFKGK22ISBs+5aFT/KGP1dOYzlY9cEIb/+Bw==", "17809091212", false, "68b3d427-0280-4bf9-960c-1f4117080d7f", false, "admin@capstone.com" });
-========
-                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "8a42de5d-6f1d-483e-8f62-decfba952f04", "admin@capstone.com", true, "Admin", "Capstone", false, null, "admin@capstone.com", "admin@capstone.com", "AQAAAAEAACcQAAAAEH5O3BEuPiojQ8/mUC2m0jAm7RnI3FXJwVHkmdaMKpiVQflNj4DLYw36uyRf/9B/2Q==", "17809091212", false, "0227a747-947d-49c5-924a-e4e81170dfe7", false, "admin@capstone.com" });
->>>>>>>> 32c0dcd472384606078fab9050fd2f241ada0cc9:BackEnd/Data/Migrations/20230706233439_todo.cs
+                values: new object[] { "8e445865-a24d-4543-a6c6-9443d048cdb9", 0, "bae9a589-813b-4f77-9fb0-ae29e9bedef2", "admin@capstone.com", true, "Admin", "Capstone", false, null, "admin@capstone.com", "admin@capstone.com", "AQAAAAEAACcQAAAAELG+AZM2Jwdko5k6744o1aa7bHke4aA0FZB77eLbmBI+zt+zNewKCNMrHd07YUO/TQ==", "17809091212", false, "33dd8c48-d7c8-4230-97cf-5b1f11593039", false, "admin@capstone.com" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -276,6 +279,21 @@ namespace Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDo_CategoryId",
+                table: "ToDo",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDo_PriorityId",
+                table: "ToDo",
+                column: "PriorityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ToDo_UserId",
+                table: "ToDo",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -296,16 +314,19 @@ namespace Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Category");
-
-            migrationBuilder.DropTable(
-                name: "Priority");
+                name: "ToDo");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Category");
+
+            migrationBuilder.DropTable(
+                name: "Priority");
         }
     }
 }
