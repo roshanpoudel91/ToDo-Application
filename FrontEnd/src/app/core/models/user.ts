@@ -11,7 +11,7 @@
  */
 
 export class User { 
-    UserviewId?:string = "";
+    UserviewId?:string | null = "";
     id?: string | null = "";
     firstName?: string = "";
     lastName?: string = "";
