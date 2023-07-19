@@ -16,23 +16,24 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    cd '$(System.DefaultWorkingDirectory)/Frontend/HelloWorld'
     npm install -g @angular/cli
     npm install
     ng build --prod
   displayName: 'npm install and build'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish CapStone-May2023-Angular-FrontEnd'
+- task: ArchiveFiles@2
+  displayName: 'Archive files'
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    zipAfterPublish: true
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/HelloWorld/dist/HelloWorld/'
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Build Artifacts'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'CapStone-May2023-MindInstall'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    ArtifactName: 'drop'
     publishLocation: 'Container'
 
