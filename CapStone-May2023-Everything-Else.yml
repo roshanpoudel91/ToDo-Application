@@ -1,12 +1,12 @@
 # Build-CapStone-May2023-Everything-Else
 
-trigger:
-  branches:
-    include:
-      - '*'
-    exclude:
-      - DataPirates
-      - MindInstall
+#trigger:
+#  branches:
+#    include:
+#      - '*'
+#    exclude:
+#      - DataPirates
+#      - MindInstall
 
 pool:
   vmImage: ubuntu-latest
