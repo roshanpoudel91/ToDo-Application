@@ -24,7 +24,7 @@ stages:
           versionSpec: '14.x'
         displayName: 'Install Node.js'
 
-      - script:
+      - script: |
           cd '$(System.DefaultWorkingDirectory)/FrontEnd'
           npm i -g @angular/cli@14.2.4
           npm install
