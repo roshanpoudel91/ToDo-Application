@@ -28,7 +28,7 @@ stages:
           cd '$(System.DefaultWorkingDirectory)/FrontEnd'
           npm i -g @angular/cli@14.2.4
           npm install
-          ng build --prod
+          ng build
         displayName: 'npm install and build'
 
       - task: ArchiveFiles@2
