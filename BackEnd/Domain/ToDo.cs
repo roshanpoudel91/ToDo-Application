@@ -10,8 +10,8 @@ namespace Domain
 
         public string description { get; set; }
 
+      
         public int CategoryId { get; set; }
-
         public virtual Category? Categories { get; set; }
 
         public int PriorityId { get; set; }
