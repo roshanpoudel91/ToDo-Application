@@ -20,3 +20,18 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish CapStone-May2023-Angular-FrontEnd'
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'CapStone-May2023-MindInstall'
+    publishLocation: 'Container'
