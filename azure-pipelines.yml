@@ -35,3 +35,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'CapStone-May2023-MindInstall'
     publishLocation: 'Container'
+
