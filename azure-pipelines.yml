@@ -6,11 +6,6 @@
 trigger:
 - master
 
-variables:
-
-  # Web app name
-  webAppName: 'Todo'
-
 stages:
 - stage: Build
   displayName: Build stage
@@ -24,17 +19,18 @@ stages:
           versionSpec: '14.x'
         displayName: 'Install Node.js'
 
+
       - script: |      
+          cd '$(System.DefaultWorkingDirectory)/FrontEnd'
           npm i -g @angular/cli@14.2.4
           npm install
-          cd '$(System.DefaultWorkingDirectory)/FrontEnd'
           ng build
         displayName: 'npm install and build'
 
       - task: ArchiveFiles@2
         displayName: 'Archive files'
         inputs:
-          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/FrontEnd/dist/Todo/'
+          rootFolderOrFile: '$(System.DefaultWorkingDirectory)/FrontEnd/dist'
           includeRootFolder: false
           archiveType: zip
           archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
