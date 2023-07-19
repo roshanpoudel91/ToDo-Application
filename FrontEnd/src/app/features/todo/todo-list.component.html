@@ -6,6 +6,12 @@
     <h1>ToDo</h1><br><br>
   
     <br><br>
+    <div>
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name...">
+      <button (click)="search()">Search</button>
+      <button (click)="clear()">Clear</button>
+    </div>
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>

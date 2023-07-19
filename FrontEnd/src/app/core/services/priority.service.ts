@@ -30,22 +30,22 @@ export class PriorityService {
   }
 
 
-  /** GET priority by id. Will 404 if id not found */
-  getPriority(id: number): Observable<Priority> {
-    const url = `${this.priorityUrl}/${id}`;
+  /** GET priority by priorityId. Will 404 if priorityId not found */
+  getPriority(priorityId: number): Observable<Priority> {
+    const url = `${this.priorityUrl}/${priorityId}`;
     console.log(url);
     return this.http.get<Priority>(url).pipe(
-      tap(_ => this.log(`fetched priority id=${id}`)),
-      catchError(this.handleError<Priority>(`getCategory id=${id}`))
+      tap(_ => this.log(`fetched priority priorityId=${priorityId}`)),
+      catchError(this.handleError<Priority>(`getCategory priorityId=${priorityId}`))
     );
   }
 
    /** PUT: update the priority on the server */
    // don't forget to add httoptions after integrating real API
    updatePriority(priority: Priority): Observable<any> {
-    const url = `${this.priorityUrl}/${priority.id}`;
+    const url = `${this.priorityUrl}/${priority.priorityId}`;
     return this.http.put(url, priority).pipe(
-      tap(_ => this.log(`updated priority id=${priority.id}`)),
+      tap(_ => this.log(`updated priority priorityId=${priority.priorityId}`)),
       catchError(this.handleError<any>('updatePriority'))
     );
   }
@@ -53,17 +53,17 @@ export class PriorityService {
   deletePriority(priorityId: number): Observable<any> {
     const url = `${this.priorityUrl}/${priorityId}`;
     return this.http.delete(url).pipe(
-      tap(_ => console.log(`Deleted priority with id=${priorityId}`)),
+      tap(_ => console.log(`Deleted priority with priorityId=${priorityId}`)),
       catchError(this.handleError<any>('deletePriority'))
     );
   }
   
   /** DELETE: delete the person from the server */
-  // deletePerson(id: number): Observable<Person> {
-  //   const url = `${this.personsUrl}/${id}`;
+  // deletePerson(priorityId: number): Observable<Person> {
+  //   const url = `${this.personsUrl}/${priorityId}`;
 
   //   return this.http.delete<Person>(url, this.httpOptions).pipe(
-  //     tap((_) => this.log(`deleted person id=${id}`)),
+  //     tap((_) => this.log(`deleted person priorityId=${priorityId}`)),
   //     catchError(this.handleError<Person>('deletePerson'))
   //   );
   // }
@@ -75,7 +75,7 @@ export class PriorityService {
       .post<Priority>(this.priorityUrl, priority)
       .pipe(
         tap((newPriority: Priority) =>
-          this.log(`added priority w/ id=${newPriority.id}`)
+          this.log(`added priority w/ priorityId=${newPriority.priorityId}`)
         ),
         catchError(this.handleError<Priority>('addPriority'))
       );

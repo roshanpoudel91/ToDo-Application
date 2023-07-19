@@ -30,7 +30,7 @@ export class ListCategoriesComponent implements OnInit {
   defaultCategories: Category[] = [];
   private resetCategories$: Subject<void> = new Subject<void>();
   searchTerm: string = '';
-
+  selectedItem!:number;
   pageSize = 10; 
   currentPage = 1; 
 
@@ -46,6 +46,7 @@ export class ListCategoriesComponent implements OnInit {
     });
         
   }
+  
 
   goToEdit(id:number){
     console.log('category_id',id);
@@ -70,8 +71,9 @@ export class ListCategoriesComponent implements OnInit {
             .subscribe((categoryResult)=>(
               
               this.categories = categoryResult,
-              this.defaultCategories = categoryResult
+              this.defaultCategories = categoryResult,
               // Store the default categories
+              console.log(categoryResult  )
 
               ))
   }
@@ -79,8 +81,9 @@ export class ListCategoriesComponent implements OnInit {
   addCategory(){
     this.router.navigate(['site/add-category']);
   }
-  deleteCategory(categoryId: any): void {
-    this.categoryService.deleteCategory(categoryId).subscribe(() => {
+  deleteCategory(): void {
+    console.log(this.selectedItem)
+    this.categoryService.deleteCategory(this.selectedItem).subscribe(() => {
       console.log('Category deleted!');
       // Refresh the categories list after deletion
       this.getCategories();
