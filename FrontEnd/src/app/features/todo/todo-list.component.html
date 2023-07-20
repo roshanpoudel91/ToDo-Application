@@ -1,11 +1,13 @@
 <div class="container">
   <h1>ToDo</h1>
   <br><br>
-  <form (submit)="applyFilter()">
+  <form (submit)="search()">
     <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search by name...">
-    <button type="submit">Search</button>
+    <button  type="submit">Search</button>
     <button type="button" (click)="clear()">Clear</button>
-
+</form>
+<br><br>
+<form (submit)="applyFilter()">
     <label>Filter by Priority:</label>
     <select [(ngModel)]="selectedPriority" name="priority">
       <option value="">All</option>
