@@ -12,9 +12,13 @@ export class TodoListComponent implements OnInit {
 
  
   todos: ToDo[] = [];
-  originalTodos: ToDo[] = []; // To store the original list before filtering
+  originalTodos: ToDo[] = []; 
   searchQuery: string = '';
-
+  selectedPriority: string = '';
+  selectedCategory: string = '';
+  selectedSortOption: string = 'name';
+  priorities: string[] = [];
+  categories: string[] = [];
   constructor(private router : Router, 
     private todoService: TodoService) { }
 
@@ -26,8 +30,13 @@ export class TodoListComponent implements OnInit {
       .getTodos()
       .subscribe((todoResult) => {
         this.todos = todoResult;
-        this.originalTodos = todoResult; // Store original data when fetching
+        this.originalTodos = todoResult;
+        this.extractPrioritiesAndCategories(todoResult); 
       });
+  }
+  extractPrioritiesAndCategories(todos: ToDo[]): void {
+    this.priorities = Array.from(new Set(todos.map(todo => todo.priorities.name)));
+    this.categories = Array.from(new Set(todos.map(todo => todo.categories.name)));
   }
 
   search(): void {
@@ -39,7 +48,25 @@ export class TodoListComponent implements OnInit {
   }
 
   clear(): void {
-    this.searchQuery = ''; // Clear the search query
-    this.todos = this.originalTodos; // Restore the original data
+    this.searchQuery = ''; 
+    this.todos = this.originalTodos; 
   }
-}
+  applyFilter(): void {
+    let filteredTodos = this.originalTodos;
+  
+    if (this.selectedPriority) {
+      filteredTodos = filteredTodos.filter(todo => todo.priorities.name === this.selectedPriority);
+    }
+  
+    if (this.selectedCategory) {
+      filteredTodos = filteredTodos.filter(todo => todo.categories.name === this.selectedCategory);
+    }
+  
+    if (this.selectedSortOption === 'id') {
+      filteredTodos = filteredTodos.sort((a, b) => a.id - b.id);
+    } else if (this.selectedSortOption === '-id') {
+      filteredTodos = filteredTodos.sort((a, b) => b.id - a.id);
+    }
+  
+    this.todos = filteredTodos;
+  }}
