@@ -102,11 +102,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-<<<<<<< HEAD
-                            ConcurrencyStamp = "70dd577e-e197-4434-b8ae-e227d380f85a",
-=======
-                            ConcurrencyStamp = "5827aa16-06f9-43c7-997b-a629b669a458",
->>>>>>> 0e9c6f46e8d5e38f275d2a5a4093288c401a81fe
+                            ConcurrencyStamp = "912b4529-6822-47c3-98ff-6f3a34761697",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -114,11 +110,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-<<<<<<< HEAD
-                            ConcurrencyStamp = "7e6f691e-75a2-4052-bd48-d132381a6d20",
-=======
-                            ConcurrencyStamp = "9fd73af7-8470-4750-b185-eed2e35aaf86",
->>>>>>> 0e9c6f46e8d5e38f275d2a5a4093288c401a81fe
+                            ConcurrencyStamp = "3c8690ab-b011-4fc0-bf59-3e0ca98b32f4",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -239,11 +231,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-<<<<<<< HEAD
-                            ConcurrencyStamp = "56088d5a-6cde-4b62-8421-ae12f1b6e4da",
-=======
-                            ConcurrencyStamp = "3e5b38b0-9337-4062-889b-8f94d27cef6d",
->>>>>>> 0e9c6f46e8d5e38f275d2a5a4093288c401a81fe
+                            ConcurrencyStamp = "7f0e49b9-aa30-4427-9231-55e4bccc72d6",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -251,17 +239,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-<<<<<<< HEAD
-                            PasswordHash = "AQAAAAEAACcQAAAAEFddMZ8MBSe7ZEN85b9zx0beHqhcSZvhC0oHL/X/m4xtpElx7NVO7UmzWVwEqROU+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOlu8SqcZKnvvmDOTWIRDkkE6opGqeqU5hf18uaSHUM5pIcwNL7Izn5Rp2JxxUcZTg==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "289957dc-06cd-463e-902f-5668287c9bbf",
-=======
-                            PasswordHash = "AQAAAAEAACcQAAAAEAkAxdvBy9NMoToB0m6jXDwy1gd6IK8ivQskYXvHfwc3FLwhDIRbsg6E19muHwaBNg==",
-                            PhoneNumber = "17809091212",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d13226f3-9935-41c8-999d-881d1f4b3e73",
->>>>>>> 0e9c6f46e8d5e38f275d2a5a4093288c401a81fe
+                            SecurityStamp = "1319ad24-b347-492e-9bbd-35d3b67acc55",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

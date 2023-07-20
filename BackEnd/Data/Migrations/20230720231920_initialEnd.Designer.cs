@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    [Migration("20230720230328_somethingNew1")]
-    partial class somethingNew1
+    [Migration("20230720231920_initialEnd")]
+    partial class initialEnd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,52 @@ namespace Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
+
+                    b.Property<string>("date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Domain.Priority", b =>
+                {
+                    b.Property<int>("PriorityId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PriorityId"), 1L, 1);
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PriorityId");
+
+                    b.ToTable("Priority");
+                });
 
             modelBuilder.Entity("Domain.Role", b =>
                 {
@@ -58,7 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "669ee2ac-23d9-4f46-8480-9aa624ab663d",
+                            ConcurrencyStamp = "912b4529-6822-47c3-98ff-6f3a34761697",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -66,11 +112,48 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "3202d5a7-6b49-4d21-bd66-89bcc0f5a487",
+                            ConcurrencyStamp = "3c8690ab-b011-4fc0-bf59-3e0ca98b32f4",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
                         });
+                });
+
+            modelBuilder.Entity("Domain.ToDo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PriorityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("PriorityId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ToDo");
                 });
 
             modelBuilder.Entity("Domain.User", b =>
@@ -150,7 +233,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49ed1b40-65ea-4f2a-9d22-9f5fd47224f2",
+                            ConcurrencyStamp = "7f0e49b9-aa30-4427-9231-55e4bccc72d6",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -158,10 +241,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKMW/ScS53z0qiTKkjDfZD5T4l3wIlyYLymAzTIjnfevlxAr67LkVuwu2G8KAh0Wpg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOlu8SqcZKnvvmDOTWIRDkkE6opGqeqU5hf18uaSHUM5pIcwNL7Izn5Rp2JxxUcZTg==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b9878c5b-1aba-4c5d-ad1b-cc26871a808a",
+                            SecurityStamp = "1319ad24-b347-492e-9bbd-35d3b67acc55",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });
@@ -280,6 +363,33 @@ namespace Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.ToDo", b =>
+                {
+                    b.HasOne("Domain.Category", "Categories")
+                        .WithMany("Todos")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Priority", "Priorities")
+                        .WithMany("Todos")
+                        .HasForeignKey("PriorityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.User", "Users")
+                        .WithMany("Todos")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Categories");
+
+                    b.Navigation("Priorities");
+
+                    b.Navigation("Users");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Domain.Role", null)
@@ -329,6 +439,21 @@ namespace Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Category", b =>
+                {
+                    b.Navigation("Todos");
+                });
+
+            modelBuilder.Entity("Domain.Priority", b =>
+                {
+                    b.Navigation("Todos");
+                });
+
+            modelBuilder.Entity("Domain.User", b =>
+                {
+                    b.Navigation("Todos");
                 });
 #pragma warning restore 612, 618
         }
