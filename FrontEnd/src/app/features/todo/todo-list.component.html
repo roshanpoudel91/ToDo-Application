@@ -1,36 +1,53 @@
-
-
-
-
 <div class="container">
-    <h1>ToDo</h1><br><br>
-  
-    <br><br>
-    <div>
-      <input type="text" [(ngModel)]="searchQuery" placeholder="Search by name...">
-      <button (click)="search()">Search</button>
-      <button (click)="clear()">Clear</button>
-    </div>
-    <br>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>DESCRIPTION</th>
-          <th>Category Name</th>
-          <th>Priority Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of todos">
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.description }}</td>
-          <td>{{ item.categories.name }}</td>
-          <td>{{ item.priorities.name }}</td>
-        </tr>
-      </tbody>
-    </table>
-  
-  </div>
+  <h1>ToDo</h1>
+  <br><br>
+  <form (submit)="applyFilter()">
+    <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search by name...">
+    <button type="submit">Search</button>
+    <button type="button" (click)="clear()">Clear</button>
+
+    <label>Filter by Priority:</label>
+    <select [(ngModel)]="selectedPriority" name="priority">
+      <option value="">All</option>
+      <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+    </select>
+
+    <label>Filter by Category:</label>
+    <select [(ngModel)]="selectedCategory" name="category">
+      <option value="">All</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <label>Sort by:</label>
+    <select [(ngModel)]="selectedSortOption" name="sortOption">
+      
+      <option value="id">ID (Ascending)</option>
+      <option value="-id">ID (Descending)</option>
+    </select>
+
+    <button type="button" (click)="clear()">Clear</button>
+    <button type="submit">Filter</button>
+  </form>
+
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>Category Name</th>
+        <th>Priority Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of todos">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.categories.name }}</td>
+        <td>{{ item.priorities.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
