@@ -37,6 +37,8 @@ namespace Data
         public virtual async Task<TEntity> AddAsync(TEntity t)
         {
             await _context.Set<TEntity>().AddAsync(t);
+
+            await SaveChangesAsync();
             return t;
         }
 
@@ -44,6 +46,7 @@ namespace Data
         {
             var itemstoAdd = tList as IList<TEntity> ?? tList.ToList();
             await _context.Set<TEntity>().AddRangeAsync(itemstoAdd);
+            await SaveChangesAsync();
             return itemstoAdd;
         }
 
@@ -59,6 +62,7 @@ namespace Data
             {
                 _context.Entry(existing).CurrentValues.SetValues(updated);
             }
+            await SaveChangesAsync();
             return existing;
         }
 
@@ -71,6 +75,7 @@ namespace Data
             }
 
             _context.Set<TEntity>().Remove(existing);
+            await SaveChangesAsync();
             return existing;
         }
 

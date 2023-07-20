@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json.Serialization;
 using AutoMapper;
 using Data;
 using Domain;
@@ -19,6 +20,11 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<ApiDataContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddIdentity<User, Role>(options => { }).AddEntityFrameworkStores<ApiDataContext>();
+
+// In the section below, we add all of the dependency Injected Types
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IPriorityRepository, PriorityRepository>();
+builder.Services.AddScoped<ITodoRepository, ToDoRepository>();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -106,6 +112,10 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 
 builder.Services.Configure<JWTConfig>(builder.Configuration.GetSection("JWTConfig"));
+//added to avoid cycle issue
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 
 
 builder.Services.AddAuthentication(x =>

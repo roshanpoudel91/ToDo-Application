@@ -1,0 +1,34 @@
+# Build-CapStone-May2023-MindInstall
+
+trigger:
+- MindInstall
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+  buildSolution: 'BackEnd/CapstoneProject.sln'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Build CapStone-May2023-MindInstall'
+  inputs:
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish CapStone-May2023-MindInstall'
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    zipAfterPublish: true
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Build Artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'CapStone-May2023-MindInstall'
+    publishLocation: 'Container'

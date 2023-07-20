@@ -14,10 +14,24 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Goto(){
-    "List the Categories"
+  GotoCategories(){
     console.log("Inside Goto Categories");
     this.router.navigate(['site/category']);
+
+  }
+
+  GotoPriorities(){
+    console.log("Inside Goto Priorities");
+    this.router.navigate(['site/priority']);
+  }
+
+  addPriority(){
+    this.router.navigate(['site/add-priority']);
+  }
+
+  GotoToDos(){
+    console.log("Inside Goto Todos");
+    this.router.navigate(['site/todo']);
   }
 
 }
