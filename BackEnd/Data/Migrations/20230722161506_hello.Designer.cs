@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    [Migration("20230720235109_test")]
-    partial class test
+    [Migration("20230722161506_hello")]
+    partial class hello
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,7 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "e2053113-6700-499f-9ef5-a923ef395ccb",
+                            ConcurrencyStamp = "a78cb4af-68ba-4620-bca9-3ce57f07952a",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -112,7 +112,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "68244c00-3c02-402b-9ff9-17a07365ff64",
+                            ConcurrencyStamp = "1ecdddf8-f4e2-400c-b44b-2bf77d09fae0",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -233,7 +233,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "800aac44-0083-41d8-8dad-57117882da05",
+                            ConcurrencyStamp = "221b7562-4ac1-4582-b514-f69a50ed2f44",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -241,10 +241,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECi8QcbSvo8d4ryt72fRemIbY5KhJ+3yLvHD5Ut2pk9DeoIJDACs5+6kEefqwHBBgg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBlHha2WGO5QcA/R4ha8wg4eWgkywJhev32lxodghcGawo0VcADWldMDS/JdVAqsRw==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "67657845-7f82-440c-b9b3-f44ce7a74498",
+                            SecurityStamp = "6363e69b-52d8-46c3-bd5c-607efe0a05a8",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });
