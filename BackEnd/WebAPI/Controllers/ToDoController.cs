@@ -55,5 +55,25 @@ namespace WebAPI.Controllers
         }
 
 
+        [HttpGet("ToDo/{id}")]
+        public async Task<ActionResult<ToDo>> GetToDos(int id)
+        {
+            try
+            {
+                var result = await todoRepository.GetAsync(id);
+                if (result == null)
+                    return BadRequest("todo not found");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+        }
+
+
     }
 }
