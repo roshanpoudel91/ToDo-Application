@@ -142,7 +142,7 @@ namespace WebAPI.Controllers
     }
 
 
-        [HttpGet("ToDo/{id}")]
+      /*  [HttpGet("ToDo/{id}")]
         public async Task<ActionResult<ToDo>> GetToDos(int id)
         {
             try
@@ -156,10 +156,10 @@ namespace WebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            }
+            }*/
 
 
-        }
+      
 
 
     }
