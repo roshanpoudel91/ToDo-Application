@@ -5,34 +5,37 @@
   </div>
   <br><br>
   <form (submit)="search()">
-    <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search by name...">
-    <button  type="submit">Search</button>
-    <button type="button" (click)="clear()">Clear</button>
+    <input class="form-control" type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search by name...">
+    <button class="btn btn-primary"  type="submit">Search</button>
+    <button class="btn btn-primary m-2" type="button" (click)="clear()">Clear</button>
   </form>
-
-<form (submit)="applyFilter()">
+<div class="container ">
+  <div class="row  ">
+<form (submit)="applyFilter()" class="col-md-6">
     <label>Filter by Priority:</label>
-    <select [(ngModel)]="selectedPriority" name="priority">
+    <select class="form-select" [(ngModel)]="selectedPriority" name="priority">
       <option value="">All</option>
       <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
     </select>
 
     <label>Filter by Category:</label>
-    <select [(ngModel)]="selectedCategory" name="category">
+    <select class="form-select" [(ngModel)]="selectedCategory" name="category">
       <option value="">All</option>
       <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
     </select>
 
     <label>Sort by:</label>
-    <select [(ngModel)]="selectedSortOption" name="sortOption">
+    <select class="form-select" [(ngModel)]="selectedSortOption" name="sortOption">
       
       <option value="id">ID (Ascending)</option>
       <option value="-id">ID (Descending)</option>
     </select>
 
-    <button type="button" (click)="clear()">Clear</button>
-    <button type="submit">Filter</button>
+    <button class="btn btn-primary m-2" type="button" (click)="clear()">Clear</button>
+    <button class="btn btn-primary" type="submit">Filter</button>
   </form>
+</div>
+</div>
 
   <br>
   <table class="table table-striped">

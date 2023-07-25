@@ -1,3 +1,23 @@
 .body{
     background-color: beige;
 }
+.btn{
+    width: 300px;
+    text-align: center;
+    transition: background-color .7s ;
+    border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+.btn:hover {
+    border: 1px solid;
+    border-color: #0275d8;
+    color: #0275d8;
+    background-color: white;
+    transform: scale(1.2); 
+    box-shadow: 0px 15px 20px 	rgba(2, 117, 216, 0.4);
+    
+  transform: translateY(-7px);
+    
+  }
