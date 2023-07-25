@@ -102,7 +102,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "38704df2-3529-41c0-b8c4-8e4c831a5b1e",
+                            ConcurrencyStamp = "ed205d13-89aa-4a82-8161-ca0a6078a03e",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -110,7 +110,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "3caae1fa-4f51-4be7-849b-711fee515b10",
+                            ConcurrencyStamp = "471c7ef2-c361-42a8-add1-d141061de394",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -119,11 +119,11 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.ToDo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("todoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("todoId"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -143,7 +143,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("todoId");
 
                     b.HasIndex("CategoryId");
 
@@ -231,7 +231,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dfd8e646-4d07-42fd-843b-76152b346650",
+                            ConcurrencyStamp = "daa54e97-7f6d-4264-93d6-caa36395522e",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -239,10 +239,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOvGhVqxvehwT2iDeRuaqI+yHXeO831uJFRzvDhqQnaDm1M3o90egVnyj69khTMhkA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKbuh7eSrT/N4qSReLNscO5uccDlF/RRV5QZMEL99n4RJhYzHSgDK7WXuoyl08Zu8w==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4b98c58a-5b7b-4216-8eeb-54042c5f792c",
+                            SecurityStamp = "9880e79b-41cf-4b02-b781-46258de51980",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

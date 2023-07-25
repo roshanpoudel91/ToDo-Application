@@ -31,4 +31,8 @@ export class UserService {
   delete(userId: string) {
     return this.httpClient.delete(`${this.baseUrl}/${userId}`);
   }
+
+  getByRole(roleName: string) {
+    return this.httpClient.get<User[]>(`${this.baseUrl}/role/${roleName}`);
+  }
 }

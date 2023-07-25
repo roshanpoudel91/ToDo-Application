@@ -6,6 +6,7 @@ namespace Services.DataTransferObjects
     {
         [DataMember]
         public string UserviewId { get; set; }
+        public string Id { get; set; }
 
         [DataMember]
         public string FirstName { get; set; }
