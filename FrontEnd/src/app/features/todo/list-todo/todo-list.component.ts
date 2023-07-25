@@ -63,10 +63,17 @@ export class TodoListComponent implements OnInit {
     }
   
     if (this.selectedSortOption === 'id') {
-      filteredTodos = filteredTodos.sort((a, b) => a.id - b.id);
+      filteredTodos = filteredTodos.sort((a, b) => a.todoId - b.todoId);
     } else if (this.selectedSortOption === '-id') {
-      filteredTodos = filteredTodos.sort((a, b) => b.id - a.id);
+      filteredTodos = filteredTodos.sort((a, b) => b.todoId - a.todoId);
     }
   
     this.todos = filteredTodos;
-  }}
+  }
+
+  addTodo():void{
+    this.router.navigate(['site/add-todo']);
+  }
+
+
+}

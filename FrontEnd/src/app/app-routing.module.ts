@@ -11,7 +11,8 @@ import { AddPriorityComponent } from './features/priorities/add-priority/add-pri
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 import { UserListComponent } from './features/users/list/user-list.component';
 import { AddUserComponent } from './features/users/add/add-user.component';
-import { TodoListComponent } from './features/todo/todo-list.component';
+import { TodoListComponent } from './features/todo/list-todo/todo-list.component';
+import { AddToDoComponent } from './features/todo/add-todo/add-to-do.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
       {path:'add-category', component:AddCategoryComponent},
       {path:'add-priority', component:AddPriorityComponent},
       {path:'add-user', component:AddUserComponent},
+      {path:'add-todo', component:AddToDoComponent},
       {
         path: 'edit-category/:id',
         component: AddCategoryComponent,   

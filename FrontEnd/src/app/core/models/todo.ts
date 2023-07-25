@@ -1,5 +1,5 @@
 export interface ToDo{
-    id: number;
+    todoId: number;
     name: string;
     description: string;
     categories : {categoryId: number,
@@ -7,6 +7,14 @@ export interface ToDo{
                 description : string};
     priorities : {priorityId: number,
                 name : string,
-                description : string}
-    UserId:number
+                description : string},
+    users:{
+            id:string;
+           firstName:string;
+            lastName:string;
+    };
+    userId:string;
+    categoryId:number;
+    priorityId:number;
+    
 }

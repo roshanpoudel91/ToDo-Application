@@ -25,6 +25,56 @@ export class TodoService {
     );
   }
 
+   /** GET person type by id. Will 404 if id not found */
+   getTodo(id: number): Observable<ToDo> {
+    const url = `${this.todoUrl}/${id}`;
+    console.log(url);
+    return this.http.get<ToDo>(url).pipe(
+      tap(_ => this.log(`fetched todo id=${id}`)),
+      catchError(this.handleError<ToDo>(`getTodo id=${id}`))
+    );
+  }
+
+   /** PUT: update the person type on the server */
+   // don't forget to add httoptions after integrating real API
+   updateTodo(todo: ToDo): Observable<any> {
+    const url = `${this.todoUrl}/${todo.todoId}`;
+    console.log(url)
+    return this.http.put(url, todo).pipe(
+      tap(_ => this.log(`updated person type id=${todo.todoId}`)),
+      catchError(this.handleError<any>('updateTodo'))
+    );
+  }
+  deleteTodo(todoId: number): Observable<any> {
+    const url = `${this.todoUrl}/${todoId}`;
+    return this.http.delete(url).pipe(
+      tap(_ => console.log(`Deleted todo with id=${todoId}`)),
+      catchError(this.handleError<any>('deleteTodo'))
+    );
+  }
+  /** DELETE: delete the person from the server */
+  // deletePerson(id: number): Observable<Person> {
+  //   const url = `${this.personsUrl}/${id}`;
+
+  //   return this.http.delete<Person>(url, this.httpOptions).pipe(
+  //     tap((_) => this.log(`deleted person id=${id}`)),
+  //     catchError(this.handleError<Person>('deletePerson'))
+  //   );
+  // }
+
+  /** POST: add a new person to the server */
+  addTodo(todo: ToDo): Observable<ToDo> {
+    
+    return this.http
+      .post<ToDo>(this.todoUrl, todo)
+      .pipe(
+        tap((newTodo: ToDo) =>
+          this.log(`added todo w/ id=${newTodo.todoId}`)
+        ),
+        catchError(this.handleError<ToDo>('addTodo'))
+      );
+  }
+
 
    /**
    * Handle Http operation that failed.

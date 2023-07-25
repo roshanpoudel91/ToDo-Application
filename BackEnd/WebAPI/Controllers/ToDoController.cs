@@ -73,7 +73,7 @@ namespace WebAPI.Controllers
 
             Console.WriteLine("inside todo docs");
             var todos = databaseContext.ToDos
-                .Where(todo => todo.Id == id)
+                .Where(todo => todo.todoId == id)
                 .Include(x => x.Categories)
                 .Include(x => x.Priorities)
                 .Include(x => x.Users)
