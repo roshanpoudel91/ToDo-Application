@@ -46,6 +46,10 @@ const routes: Routes = [
         component: AddUserComponent,   
       },
       {
+        path: 'edit-todo/:id',
+        component: AddToDoComponent,   
+      },
+      {
         path: 'maintenance',
         children: [
         ],

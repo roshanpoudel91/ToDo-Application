@@ -78,7 +78,7 @@ namespace WebAPI.Controllers
                 .Include(x => x.Priorities)
                 .Include(x => x.Users)
                 .ToList();
-                
+
 
             return todos;
 

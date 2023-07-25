@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from 'src/app/core/services/todo.service';
 import { Router } from '@angular/router';
 import { ToDo } from 'src/app/core/models/todo';
+import { faTable, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,7 +11,10 @@ import { ToDo } from 'src/app/core/models/todo';
 })
 export class TodoListComponent implements OnInit {
 
- 
+  faTable = faTable;
+  faEdit = faEdit;
+  faTrash = faTrash;
+  selectedItem!:number;
   todos: ToDo[] = [];
   originalTodos: ToDo[] = []; 
   searchQuery: string = '';
@@ -73,6 +77,20 @@ export class TodoListComponent implements OnInit {
 
   addTodo():void{
     this.router.navigate(['site/add-todo']);
+  }
+
+  goToEdit(id:number){
+    console.log('todo_id',id);
+    this.router.navigate([`/site/edit-todo/${id}`])
+  }
+
+  deleteTodo(): void {
+    console.log(this.selectedItem)
+    this.todoService.deleteTodo(this.selectedItem).subscribe(() => {
+      console.log('Todo deleted!');
+      // Refresh the categories list after deletion
+      this.getTodos();
+    });
   }
 
 

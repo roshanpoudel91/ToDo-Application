@@ -104,10 +104,10 @@ export class AddToDoComponent implements OnInit {
     console.log("todo_id", id);
     this.todoService
       .getTodo(id)
-      .subscribe((todoResult) => {
-        this.model = todoResult;
+     
+      .subscribe((todoResult:any) => {
+        this.model= todoResult[0];
         console.log(this.model);
-
       });
 
 

@@ -43,6 +43,8 @@
         <th>DESCRIPTION</th>
         <th>Category Name</th>
         <th>Priority Name</th>
+        <th>Action</th>
+
       </tr>
     </thead>
     <tbody>
@@ -52,7 +54,42 @@
         <td>{{ item.description }}</td>
         <td>{{ item.categories.name }}</td>
         <td>{{ item.priorities.name }}</td>
+        <td>
+          <!-- Call to action button -->
+          <ul class="list-inline m-0">
+            <li class="list-inline-item">
+              <button class="btn btn-success btn-sm rounded-0" (click)="goToEdit(item.todoId)" type="button"
+                data-toggle="tooltip" data-placement="top" title="Edit">
+                <fa-icon [icon]="faEdit">
+                </fa-icon>
+              </button>
+            </li>
+            <li class="list-inline-item">
+              <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                title="Delete" data-bs-toggle="modal"  data-bs-target="#deleteModal" (click)="selectedItem = item.todoId"><fa-icon
+                  [icon]="faTrash"></fa-icon></button>
+
+            </li>
+          </ul>
+        </td>
       </tr>
     </tbody>
   </table>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"  >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button (click)="deleteTodo()" type="button" data-bs-dismiss="modal"
+              class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

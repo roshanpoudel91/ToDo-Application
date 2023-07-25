@@ -30,7 +30,7 @@
             </li>
             <li class="list-inline-item">
               <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
-                title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="goToDelete(item.priorityId)"><fa-icon
+                title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deletepriorityId = item.priorityId"><fa-icon
                   [icon]="faTrash"></fa-icon></button>
              
             </li>
@@ -40,24 +40,23 @@
     </tbody>
   </table>
 
-   <!-- Modal -->
-   <div class="modal fade" priorityId="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-   aria-hpriorityIdden="true">
-   <div class="modal-dialog">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h1 class="modal-title fs-5" priorityId="deleteModalLabel">Do you want to Delete?</h1>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       </div>
-
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         <button (click)="deletePriority()" type="button" data-bs-dismiss="modal"
-           class="btn btn-danger">Delete</button>
-       </div>
-     </div>
-   </div>
- </div>
-
   <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+   <!-- Modal -->
+   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button (click)="deletePriority()" type="button" data-bs-dismiss="modal"
+            class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
