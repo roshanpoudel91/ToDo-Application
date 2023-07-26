@@ -20,4 +20,5 @@ export class User {
     password?: string = "";
     confirmPassword?: string = "";
     accessToken?: string = "";
+    isTodo?:boolean = false;
 }

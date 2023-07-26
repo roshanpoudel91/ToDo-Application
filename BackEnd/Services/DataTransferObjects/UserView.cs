@@ -29,6 +29,8 @@ namespace Services.DataTransferObjects
         [DataMember]
         public string AccessToken { get; set; }
 
+        public bool? IsTodo { get; set; } = false;
+
     }
 }
 
