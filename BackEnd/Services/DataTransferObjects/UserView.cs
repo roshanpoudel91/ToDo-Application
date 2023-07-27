@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Domain;
+using System.Runtime.Serialization;
 
 namespace Services.DataTransferObjects
 {

@@ -4,6 +4,7 @@ import { User } from 'src/app/core/models/models';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { TokenStorageService } from 'src/app/core/services/token-storage.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router,
     private tokenStorage: TokenStorageService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +46,18 @@ export class LoginComponent {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+
+        this.userService.getByRole("Admin").subscribe((datas)=>{
+          const user = this.tokenStorage.getUser();
+            datas.forEach( data => {
+                 if (data.id == user.id){
+                    this.authService.setAdmin(true);
+                 } 
+            });
+          this.router.navigate(['/site/home']);
+        })
         
-        this.router.navigate(['/site/home']);
+        
       },
       error: (error) => {
         this.router.navigate(['/site/home']);
