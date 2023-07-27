@@ -24,6 +24,11 @@ export class AuthService {
     return this.httpClient.post<User>(`${this.baseUrl}/login` ,user, httpOptions);
   }
 
+  public logout() : Observable<User>
+  {
+    return this.httpClient.post<User>(`${this.baseUrl}/logout`, httpOptions);
+  }
+
   register(user: User): Observable<any> {
     return this.httpClient.post<User>(`${this.baseUrl}/register` ,user, httpOptions);
   }
