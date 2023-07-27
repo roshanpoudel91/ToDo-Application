@@ -47,4 +47,25 @@ export class NavBarComponent implements OnInit {
     
   }
 
+  GotoCategories(){
+    console.log("Inside Goto Categories");
+    this.router.navigate(['site/category']);
+
+  }
+
+  GotoPriorities(){
+    console.log("Inside Goto Priorities");
+    this.router.navigate(['site/priority']);
+  }
+
+  GotoUsers(){
+    console.log("Inside Goto Users");
+    this.router.navigate(['site/user']);
+  }
+
+  GotoToDos(){
+    console.log("Inside Goto Todos");
+    this.router.navigate(['site/todo']);
+  }
+
 }
