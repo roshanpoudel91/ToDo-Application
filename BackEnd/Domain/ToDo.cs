@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Tracing;
+
 namespace Domain
 {
     [Table("ToDo")]
@@ -21,6 +23,8 @@ namespace Domain
         public string UserId { get; set; }
 
         public virtual User? Users { get; set; }
+
+        public string Status { get; set; } = "created";
 
     }
 }
