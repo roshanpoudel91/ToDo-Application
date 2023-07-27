@@ -11,6 +11,8 @@ import { AddPriorityComponent } from './features/priorities/add-priority/add-pri
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 import { UserListComponent } from './features/users/list/user-list.component';
 import { AddUserComponent } from './features/users/add/add-user.component';
+import { TodoListComponent } from './features/todo/list-todo/todo-list.component';
+import { AddToDoComponent } from './features/todo/add-todo/add-to-do.component';
 
 
 const routes: Routes = [
@@ -26,9 +28,11 @@ const routes: Routes = [
       { path: 'category',component: ListCategoriesComponent},
       { path: 'priority',component: ListPrioritiesComponent},
       { path: 'user',component: UserListComponent},
+      { path: 'todo',component: TodoListComponent},
       {path:'add-category', component:AddCategoryComponent},
       {path:'add-priority', component:AddPriorityComponent},
       {path:'add-user', component:AddUserComponent},
+      {path:'add-todo', component:AddToDoComponent},
       {
         path: 'edit-category/:id',
         component: AddCategoryComponent,   
@@ -40,6 +44,10 @@ const routes: Routes = [
       {
         path: 'edit-user/:id',
         component: AddUserComponent,   
+      },
+      {
+        path: 'edit-todo/:id',
+        component: AddToDoComponent,   
       },
       {
         path: 'maintenance',
@@ -54,6 +62,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

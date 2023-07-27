@@ -47,7 +47,7 @@ export class AddCategoryComponent implements OnInit {
     if (this.model) {
       console.log(this.model);
       //if id is present, it will update form otherwise it will add form.
-      if (this.model.id) {
+      if (this.model.categoryId) {
         this.categoryService.updateCategory(this.model)
           .subscribe(() => this.back());
 

@@ -24,6 +24,8 @@ import { AddPriorityComponent } from './features/priorities/add-priority/add-pri
 import { ListPrioritiesComponent } from './features/priorities/list-priorities/list-priorities.component';
 import { UserListComponent } from './features/users/list/user-list.component';
 import { AddUserComponent } from './features/users/add/add-user.component';
+import { TodoListComponent } from './features/todo/list-todo/todo-list.component';
+import { AddToDoComponent } from './features/todo/add-todo/add-to-do.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { AddUserComponent } from './features/users/add/add-user.component';
     AddPriorityComponent,
     ListPrioritiesComponent,
     UserListComponent,
-    AddUserComponent
+    AddUserComponent,
+    TodoListComponent,
+    AddToDoComponent
   ],
   imports: [
     BrowserModule,

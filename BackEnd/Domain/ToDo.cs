@@ -4,14 +4,14 @@ namespace Domain
     [Table("ToDo")]
     public class ToDo
     {
-        public int Id { get; set; }
+        public int todoId { get; set; }
 
         public string name { get; set; }
 
         public string description { get; set; }
 
+      
         public int CategoryId { get; set; }
-
         public virtual Category? Categories { get; set; }
 
         public int PriorityId { get; set; }

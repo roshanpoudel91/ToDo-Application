@@ -55,12 +55,11 @@ export class AddUserComponent implements OnInit {
 
       //if id is present, it will update form otherwise it will add form.
       if (this.model.id) {
-        // const requiredField = {UserViewId:"",Password:"Test@123",ConfirmPassword:"Test@123",AccessToken:""}
 
-        // this.model.UserviewId = "";
-        // this.model.Password = "";
-        // this.model.ConfirmPassword = "";
-        // this.model.AccessToken = "";
+        this.model.UserviewId = this.model.id;
+        this.model.password = "Test@123";
+        this.model.confirmPassword = "Test@123";
+        this.model.accessToken = "";
 
         
         this.userService.update(this.model.id,this.model)

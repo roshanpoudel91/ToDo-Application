@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit {
 
   getUsers():void{
         this.userService
-            .getAll()
+            .getByRole("User")
             .subscribe((userResult)=>(this.users = userResult))
   }
 
