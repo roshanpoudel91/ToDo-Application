@@ -29,7 +29,7 @@ export class AddPriorityComponent implements OnInit {
 
    
 
-    const priorityId = parseInt(this.route.snapshot.paramMap.get('priorityId')!, 10);
+    const priorityId = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
     //if priorityId is present in url, form will act as update form otherwise it will act as add form.
     if (priorityId) {
       this.priority_button = "UPDATE";

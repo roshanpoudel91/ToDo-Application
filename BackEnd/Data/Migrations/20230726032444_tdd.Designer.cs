@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    partial class ApiDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230726032444_tdd")]
+    partial class tdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,7 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "5e2dc141-5527-4aab-9116-7d6f572bc776",
+                            ConcurrencyStamp = "b4bf11da-18af-4d6c-a893-ea163bdf3e24",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -110,7 +112,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "f630a2f2-b5f4-471a-9ca8-1fc19df73766",
+                            ConcurrencyStamp = "d3d2a11f-b23a-4ba3-97dd-97dc2babd878",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -130,10 +132,6 @@ namespace Data.Migrations
 
                     b.Property<int>("PriorityId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -180,6 +178,9 @@ namespace Data.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsTodo")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -235,7 +236,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c2f76262-2025-4585-a1ea-fb4d6d59f7d6",
+                            ConcurrencyStamp = "86b2c97f-817a-4827-bb86-8bbca2fb5ae6",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -243,10 +244,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAECDurPtzige9rE7uhH2miBIZNl0X1pZXnrs4KrGfsJQ8NrGrOzyQQ3J6LMbLNBGdXw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJn0GDgHmJ0ExkESPoNNUua99L5Fy1JmPY+B2UxGzcCu2MUWm8qA06kRl/fT83wIoQ==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "53a4a5ac-c3df-44a1-ad74-5a3e7b116d99",
+                            SecurityStamp = "38ab4b58-8a84-40a9-82a5-13d50c22c186",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

@@ -13,6 +13,7 @@ import { UserListComponent } from './features/users/list/user-list.component';
 import { AddUserComponent } from './features/users/add/add-user.component';
 import { TodoListComponent } from './features/todo/list-todo/todo-list.component';
 import { AddToDoComponent } from './features/todo/add-todo/add-to-do.component';
+import { CheckAdminGuard } from './core/guards/check-admin.guard';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
   
   {
     path: 'site',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard,CheckAdminGuard],
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'category',component: ListCategoriesComponent},

@@ -23,6 +23,7 @@ export class AddToDoComponent implements OnInit {
   categories:any;
   priorities:any;
   users:any;
+  statuss = ["created","started","completed"];
 
   constructor(private todoService: TodoService,
     private categoryService: CategoryService,

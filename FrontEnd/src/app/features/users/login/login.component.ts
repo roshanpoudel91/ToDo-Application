@@ -4,6 +4,9 @@ import { User } from 'src/app/core/models/models';
 import { AlertService } from 'src/app/core/services/alert.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { TokenStorageService } from 'src/app/core/services/token-storage.service';
+import { UserService } from 'src/app/core/services/user.service';
+import { Output, EventEmitter } from '@angular/core';
+import { SharedService } from 'src/app/core/services/shared.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +26,8 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router,
     private tokenStorage: TokenStorageService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +48,22 @@ export class LoginComponent {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        
+
+        this.sharedService.updateBooleanData(true);
+        const user = this.tokenStorage.getUser();
+        this.sharedService.updateUserName(`${user.firstName} ${user.lastName}`);
+
+        // this.userService.getByRole("Admin").subscribe((datas)=>{
+        //   const user = this.tokenStorage.getUser();
+        //     datas.forEach( data => {
+        //          if (data.id == user.id){
+        //             this.authService.setAdmin(true);
+        //          } 
+        //     });
+         
+        // })
         this.router.navigate(['/site/home']);
+        
       },
       error: (error) => {
         this.router.navigate(['/site/home']);
