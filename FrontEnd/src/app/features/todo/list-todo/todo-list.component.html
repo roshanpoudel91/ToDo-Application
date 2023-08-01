@@ -1,0 +1,97 @@
+<div class="container">
+  <h1>ToDo</h1>
+  <div class="float-end">
+    <button (click)="addTodo()" type="button" class="btn btn-primary">ADD</button>
+  </div>
+  <br><br>
+  <form (submit)="search()">
+    <input type="text" [(ngModel)]="searchQuery" name="search" placeholder="Search by name...">
+    <button  type="submit">Search</button>
+    <button type="button" (click)="clear()">Clear</button>
+  </form>
+
+<form (submit)="applyFilter()">
+    <label>Filter by Priority:</label>
+    <select [(ngModel)]="selectedPriority" name="priority">
+      <option value="">All</option>
+      <option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</option>
+    </select>
+
+    <label>Filter by Category:</label>
+    <select [(ngModel)]="selectedCategory" name="category">
+      <option value="">All</option>
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+
+    <label>Sort by:</label>
+    <select [(ngModel)]="selectedSortOption" name="sortOption">
+      
+      <option value="id">ID (Ascending)</option>
+      <option value="-id">ID (Descending)</option>
+    </select>
+
+    <button type="button" (click)="clear()">Clear</button>
+    <button type="submit">Filter</button>
+  </form>
+
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>Category Name</th>
+        <th>Priority Name</th>
+        <th>Status</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of todos">
+        <td>{{ item.todoId }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.categories.name }}</td>
+        <td>{{ item.priorities.name }}</td>
+        <td>{{ item.status }}</td>
+        <td>
+          <!-- Call to action button -->
+          <ul class="list-inline m-0">
+            <li class="list-inline-item">
+              <button class="btn btn-success btn-sm rounded-0" (click)="goToEdit(item.todoId)" type="button"
+                data-toggle="tooltip" data-placement="top" title="Edit">
+                <fa-icon [icon]="faEdit">
+                </fa-icon>
+              </button>
+            </li>
+            <li class="list-inline-item">
+              <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
+                title="Delete" data-bs-toggle="modal"  data-bs-target="#deleteModal" (click)="selectedItem = item.todoId"><fa-icon
+                  [icon]="faTrash"></fa-icon></button>
+
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"  >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button (click)="deleteTodo()" type="button" data-bs-dismiss="modal"
+              class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

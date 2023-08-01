@@ -29,12 +29,12 @@ export class AddPriorityComponent implements OnInit {
 
    
 
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    //if id is present in url, form will act as update form otherwise it will act as add form.
-    if (id) {
+    const priorityId = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    //if priorityId is present in url, form will act as update form otherwise it will act as add form.
+    if (priorityId) {
       this.priority_button = "UPDATE";
       this.priority_add = "Edit Priority";
-      this.getPriority(id);
+      this.getPriority(priorityId);
     }
 
   }
@@ -52,8 +52,8 @@ export class AddPriorityComponent implements OnInit {
 
     if (this.model) {
       console.log(this.model);
-      //if id is present, it will update form otherwise it will add form.
-      if (this.model.id) {
+      //if priorityId is present, it will update form otherwise it will add form.
+      if (this.model.priorityId) {
         this.priorityService.updatePriority(this.model)
           .subscribe(() => this.back());
 
@@ -67,12 +67,12 @@ export class AddPriorityComponent implements OnInit {
     }
   }
 
-  getPriority(id: number): void {
-    // get the category id from the URL
-    // const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    console.log("priority_id", id);
+  getPriority(priorityId: number): void {
+    // get the category priorityId from the URL
+    // const priorityId = parseInt(this.route.snapshot.paramMap.get('priorityId')!, 10);
+    console.log("priority_id", priorityId);
     this.priorityService
-      .getPriority(id)
+      .getPriority(priorityId)
       .subscribe((priorityResult) => {
         this.model = priorityResult;
         console.log(this.model);

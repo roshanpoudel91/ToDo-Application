@@ -25,8 +25,18 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['site/priority']);
   }
 
+  GotoUsers(){
+    console.log("Inside Goto Users");
+    this.router.navigate(['site/user']);
+  }
+
   addPriority(){
     this.router.navigate(['site/add-priority']);
+  }
+
+  GotoToDos(){
+    console.log("Inside Goto Todos");
+    this.router.navigate(['site/todo']);
   }
 
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApiDataContext))]
-    [Migration("20230706235229_todochange")]
-    partial class todochange
+    [Migration("20230727185347_addedStatus")]
+    partial class addedStatus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,7 +104,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
-                            ConcurrencyStamp = "38704df2-3529-41c0-b8c4-8e4c831a5b1e",
+                            ConcurrencyStamp = "5e2dc141-5527-4aab-9116-7d6f572bc776",
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -112,7 +112,7 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
-                            ConcurrencyStamp = "3caae1fa-4f51-4be7-849b-711fee515b10",
+                            ConcurrencyStamp = "f630a2f2-b5f4-471a-9ca8-1fc19df73766",
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -121,17 +121,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.ToDo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("todoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("todoId"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("PriorityId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -145,7 +149,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("todoId");
 
                     b.HasIndex("CategoryId");
 
@@ -233,7 +237,7 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dfd8e646-4d07-42fd-843b-76152b346650",
+                            ConcurrencyStamp = "c2f76262-2025-4585-a1ea-fb4d6d59f7d6",
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -241,10 +245,10 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOvGhVqxvehwT2iDeRuaqI+yHXeO831uJFRzvDhqQnaDm1M3o90egVnyj69khTMhkA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECDurPtzige9rE7uhH2miBIZNl0X1pZXnrs4KrGfsJQ8NrGrOzyQQ3J6LMbLNBGdXw==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4b98c58a-5b7b-4216-8eeb-54042c5f792c",
+                            SecurityStamp = "53a4a5ac-c3df-44a1-ad74-5a3e7b116d99",
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

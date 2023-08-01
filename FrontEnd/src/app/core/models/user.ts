@@ -11,6 +11,7 @@
  */
 
 export class User { 
+    UserviewId?:string | null = "";
     id?: string | null = "";
     firstName?: string = "";
     lastName?: string = "";
@@ -19,4 +20,5 @@ export class User {
     password?: string = "";
     confirmPassword?: string = "";
     accessToken?: string = "";
+    isTodo?:boolean = false;
 }
