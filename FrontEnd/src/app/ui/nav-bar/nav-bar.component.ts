@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/core/models/user';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { SharedService } from 'src/app/core/services/shared.service';
 import { TokenStorageService } from 'src/app/core/services/token-storage.service';
 
 @Component({
@@ -10,16 +11,28 @@ import { TokenStorageService } from 'src/app/core/services/token-storage.service
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
+  loggedIn:boolean=false;
   userName: string;
   user: User;
   currentRoute: string="";
-  
+
+
   constructor(private tokenService: TokenStorageService, private authService:AuthService,
               private router: Router,
-              private route:ActivatedRoute ) { 
+              private route:ActivatedRoute, 
+              private sharedService: SharedService ) { 
     this.user = this.tokenService.getUser();
     this.userName = 'unknown user';
+
+    this.sharedService.booleanData$.subscribe((data) => {
+      this.loggedIn = data;
+      console.log(this.loggedIn); 
+    });
+
+    this.sharedService.userName$.subscribe((data) => {
+      this.userName = data;
+      console.log(this.userName); 
+    });
     
   }
 
@@ -28,7 +41,8 @@ export class NavBarComponent implements OnInit {
     console.log(this.currentRoute);
     this.user = this.tokenService.getUser();
     if (this.user?.firstName) {
-      this.userName = `${this.user?.firstName} ${this.user?.lastName}`;  
+      this.userName = `${this.user?.firstName} ${this.user?.lastName}`; 
+      this.sharedService.updateBooleanData(true); 
     } else {
       this.userName = '';
     }  
@@ -41,11 +55,13 @@ export class NavBarComponent implements OnInit {
   //  .subscribe((priorityResult) => {
   //    console.log(priorityResult);
   //  });
-
+    this.loggedIn = false;
    this.router.navigate(['/login']);
- 
+   this.sharedService.updateUserName('');
     
   }
+
+  
 
   GotoCategories(){
     console.log("Inside Goto Categories");
