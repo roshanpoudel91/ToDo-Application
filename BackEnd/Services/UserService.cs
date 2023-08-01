@@ -146,6 +146,7 @@ namespace Services
                     existing.FirstName = userView.FirstName;
                     existing.LastName = userView.LastName;
                     existing.PhoneNumber = userView.PhoneNumber;
+                    existing.Email = userView.Email;
 
                     var result = await _userManager.UpdateAsync(existing);
 

@@ -11,6 +11,8 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService {
 
   private baseUrl;
@@ -19,13 +21,28 @@ export class AuthService {
     this.baseUrl = `${environment.baseUrl}/auth` 
   }
 
+  isAdmin:boolean=false;
+
   public login(user: User) : Observable<User>
   {
     return this.httpClient.post<User>(`${this.baseUrl}/login` ,user, httpOptions);
   }
 
+  public logout() : Observable<User>
+  {
+    return this.httpClient.post<User>(`${this.baseUrl}/logout`, httpOptions);
+  }
+
   register(user: User): Observable<any> {
     return this.httpClient.post<User>(`${this.baseUrl}/register` ,user, httpOptions);
+  }
+
+  public setAdmin(data:any){
+    this.isAdmin = data;
+  }
+
+  public getAdmin(){
+    return this.isAdmin;
   }
 }
 

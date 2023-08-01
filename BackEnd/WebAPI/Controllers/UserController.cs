@@ -1,7 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Data;
+using Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 using Services.DataTransferObjects;
+using System.Data.Entity;
+using System.Dynamic;
 
 namespace WebAPI.Controllers
 {
@@ -11,12 +15,14 @@ namespace WebAPI.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserService userService;
+        private readonly ApiDataContext dataContext;
 
         public UserController(ILogger<UserController> logger,
-            IUserService userService)
+            IUserService userService, ApiDataContext dataContext)
         {
             _logger = logger;
             this.userService = userService;
+            this.dataContext = dataContext;
         }
 
         [AllowAnonymous]
@@ -48,12 +54,23 @@ namespace WebAPI.Controllers
                 {
                     return BadRequest("Invalid role");
                 }
-
+                
                 var result = await userService.GetAllByRole(role);
                 if (result == null)
                 {
                     return BadRequest($"No Users available with role of {role}");
                 }
+
+              foreach(var user in result)
+                {
+                    if (dataContext.ToDos.Any(x => x.UserId == user.Id))
+                    {
+                        user.IsTodo = true;
+                    }
+
+                }
+
+               
 
                 return Ok(result);
             }
@@ -125,8 +142,19 @@ namespace WebAPI.Controllers
         {
             try
             {
-                UserView result = await userService.RemoveAsync(id);
-                return Ok(result);
+                if (this.dataContext.ToDos.Any(x => x.UserId == id))
+                {
+                    // user cannot be deleted because this user has one
+                    // or more ToDo's associated to this user
+                    return BadRequest("This user cannot be deleted because it is linked with one or more todo items.");
+                }
+                else
+                {
+                    // okay to delete user
+                    UserView result = await userService.RemoveAsync(id);
+                    return Ok(result);
+                }
+               
             }
             catch (Exception ex)
             {

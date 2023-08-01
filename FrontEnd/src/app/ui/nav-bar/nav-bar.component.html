@@ -16,7 +16,7 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" *ngIf="loggedIn">
         <a
           class="nav-link dropdown-toggle"
           href="#"
@@ -27,12 +27,24 @@
         >
           Maintenances
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-
-        </ul>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" style="cursor:pointer;" (click)="GotoCategories()">Category</a>
+            <a class="dropdown-item" style="cursor:pointer;" (click)="GotoPriorities()">Priority</a>
+            <a class="dropdown-item" style="cursor:pointer; " (click)="GotoUsers()" >User</a>
+            <a class="dropdown-item" style="cursor:pointer;" (click)="GotoToDos()" >ToDo</a>
+          
+      </div>
       </li>
+
+      <li class="nav-item" *ngIf="loggedIn" style="cursor:pointer;">
+        <a class="nav-link" aria-current="page"  (click)="logout()">Logout</a>
+      </li>
+
     </ul>
+
     <span class="user-name-style">{{userName}}</span>
+
     <form class="d-flex">
       
       <input

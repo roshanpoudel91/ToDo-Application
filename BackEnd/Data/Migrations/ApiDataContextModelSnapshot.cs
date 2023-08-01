@@ -102,7 +102,11 @@ namespace Data.Migrations
                         new
                         {
                             Id = "2c5e174e-3b0e-446f-86af-483d56fd7210",
+<<<<<<< HEAD
                             ConcurrencyStamp = "f6be1d72-b4d5-4c77-8127-49c3551fd652",
+=======
+                            ConcurrencyStamp = "5e2dc141-5527-4aab-9116-7d6f572bc776",
+>>>>>>> 61b919ee4f99b7fc4e8fb9f6f4c607b894bbcfe4
                             Description = "Capstone Todos Admin",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
@@ -110,7 +114,11 @@ namespace Data.Migrations
                         new
                         {
                             Id = "65764886-4f92-4c2d-b426-a0fe8b26e855",
+<<<<<<< HEAD
                             ConcurrencyStamp = "8f17468d-54f2-412e-8cb7-9d99eb547870",
+=======
+                            ConcurrencyStamp = "f630a2f2-b5f4-471a-9ca8-1fc19df73766",
+>>>>>>> 61b919ee4f99b7fc4e8fb9f6f4c607b894bbcfe4
                             Description = "Capstone Todos User",
                             Name = "User",
                             NormalizedName = "USER"
@@ -119,17 +127,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Domain.ToDo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("todoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("todoId"), 1L, 1);
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("PriorityId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -143,7 +155,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("todoId");
 
                     b.HasIndex("CategoryId");
 
@@ -231,7 +243,11 @@ namespace Data.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "33a6ffaf-4bf9-4e26-8faf-1f742abc5623",
+=======
+                            ConcurrencyStamp = "c2f76262-2025-4585-a1ea-fb4d6d59f7d6",
+>>>>>>> 61b919ee4f99b7fc4e8fb9f6f4c607b894bbcfe4
                             Email = "admin@capstone.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
@@ -239,10 +255,17 @@ namespace Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@capstone.com",
                             NormalizedUserName = "admin@capstone.com",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAEAACcQAAAAEEAQNYhwcY7Mpi/Cl0PpX96yuoua3H2FgzBQbHZw7AY1iXP3fHGny7Ke+cjLYuc1QQ==",
                             PhoneNumber = "17809091212",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "23a59f09-919a-4f2a-a698-93ee33c073de",
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAECDurPtzige9rE7uhH2miBIZNl0X1pZXnrs4KrGfsJQ8NrGrOzyQQ3J6LMbLNBGdXw==",
+                            PhoneNumber = "17809091212",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "53a4a5ac-c3df-44a1-ad74-5a3e7b116d99",
+>>>>>>> 61b919ee4f99b7fc4e8fb9f6f4c607b894bbcfe4
                             TwoFactorEnabled = false,
                             UserName = "admin@capstone.com"
                         });

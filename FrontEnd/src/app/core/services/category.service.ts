@@ -42,10 +42,10 @@ export class CategoryService {
    /** PUT: update the person type on the server */
    // don't forget to add httoptions after integrating real API
    updateCategory(category: Category): Observable<any> {
-    const url = `${this.categoryUrl}/${category.id}`;
+    const url = `${this.categoryUrl}/${category.categoryId}`;
     console.log(url)
     return this.http.put(url, category).pipe(
-      tap(_ => this.log(`updated person type id=${category.id}`)),
+      tap(_ => this.log(`updated person type id=${category.categoryId}`)),
       catchError(this.handleError<any>('updatePerson'))
     );
   }
@@ -73,7 +73,7 @@ export class CategoryService {
       .post<Category>(this.categoryUrl, category)
       .pipe(
         tap((newCategory: Category) =>
-          this.log(`added category w/ id=${newCategory.id}`)
+          this.log(`added category w/ id=${newCategory.categoryId}`)
         ),
         catchError(this.handleError<Category>('addCategory'))
       );

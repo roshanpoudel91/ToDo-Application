@@ -1,6 +1,14 @@
 <div class="container">
   <h1>Categories</h1><br><br>
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search categories" />
+  <button (click)="clearSearch()" type="button" class="btn btn-secondary">Clear</button>
+      <button (click)="searchCategories()" type="button" class="btn btn-primary">Search</button>
+     
+
+  
   <div class="float-end">
+    
+      
     <button (click)="addCategory()" type="button" class="btn btn-primary">ADD</button>
   </div>
   <br><br>
@@ -16,7 +24,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of categories | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
-        <td>{{ item.id }}</td>
+       
+        <td>{{ item.categoryId }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.date }}</td>
         <td>{{ item.description }}</td>
@@ -24,7 +33,7 @@
           <!-- Call to action button -->
           <ul class="list-inline m-0">
             <li class="list-inline-item">
-              <button class="btn btn-success btn-sm rounded-0" (click)="goToEdit(item.id)" type="button"
+              <button class="btn btn-success btn-sm rounded-0" (click)="goToEdit(item.categoryId)" type="button"
                 data-toggle="tooltip" data-placement="top" title="Edit">
                 <fa-icon [icon]="faEdit">
                 </fa-icon>
@@ -32,33 +41,34 @@
             </li>
             <li class="list-inline-item">
               <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top"
-                title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="goToDelete(item.id)"><fa-icon
+                title="Delete" data-bs-toggle="modal"  data-bs-target="#deleteModal" (click)="selectedItem = item.categoryId"><fa-icon
                   [icon]="faTrash"></fa-icon></button>
 
             </li>
           </ul>
         </td>
       </tr>
+      <!-- Modal -->
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="deleteCategory()" type="button" data-bs-dismiss="modal"
+                class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </tbody>
   </table>
 
-  <!-- Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="deleteModalLabel">Do you want to Delete?</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button (click)="deleteCategory()" type="button" data-bs-dismiss="modal"
-            class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 
   <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
 </div>

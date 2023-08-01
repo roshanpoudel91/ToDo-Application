@@ -1,5 +1,5 @@
 export interface Priority {
-    id: number;
+  priorityId: number;
     name: string;
     description: string;
   }
