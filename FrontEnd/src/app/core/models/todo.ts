@@ -16,5 +16,6 @@ export interface ToDo{
     userId:string;
     categoryId:number;
     priorityId:number;
+    status:string;
     
 }

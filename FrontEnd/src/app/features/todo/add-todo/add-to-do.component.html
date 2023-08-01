@@ -76,6 +76,18 @@
       </div> -->
     </div>
     <br>
+    <div class="form-group col-md-5">
+      <label for="status">Status</label>       
+    <select [(ngModel)]="model.status" class="form-control" name="status" id="status"  #status="ngModel"  required>
+        <option *ngFor="let stat of statuss"  [ngValue]="stat">{{stat}}</option>
+    </select>
+      <!-- <div
+      *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+      class="alert alert-danger">
+      <div *ngIf="userName.errors?.['required']">User is required.</div>
+    </div> -->
+  </div>
+  <br>
         
        
         <br>

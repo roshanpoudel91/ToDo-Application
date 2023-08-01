@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using Domain;
+using System.Runtime.Serialization;
 
 namespace Services.DataTransferObjects
 {
@@ -28,6 +29,8 @@ namespace Services.DataTransferObjects
 
         [DataMember]
         public string AccessToken { get; set; }
+
+        public bool? IsTodo { get; set; } = false;
 
     }
 }
