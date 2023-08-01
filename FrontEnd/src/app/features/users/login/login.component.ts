@@ -47,16 +47,16 @@ export class LoginComponent {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
 
-        this.userService.getByRole("Admin").subscribe((datas)=>{
-          const user = this.tokenStorage.getUser();
-            datas.forEach( data => {
-                 if (data.id == user.id){
-                    this.authService.setAdmin(true);
-                 } 
-            });
-          this.router.navigate(['/site/home']);
-        })
-        
+        // this.userService.getByRole("Admin").subscribe((datas)=>{
+        //   const user = this.tokenStorage.getUser();
+        //     datas.forEach( data => {
+        //          if (data.id == user.id){
+        //             this.authService.setAdmin(true);
+        //          } 
+        //     });
+         
+        // })
+        this.router.navigate(['/site/home']);
         
       },
       error: (error) => {
